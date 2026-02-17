@@ -1,3 +1,10 @@
+:root {
+  --muppet-right: -54px;
+  --muppet-bottom: -52px;
+  --muppet-size: 140px;
+  --grid-gap: 56px;
+}
+
 html,
 body {
   height: 100%;
@@ -5,7 +12,7 @@ body {
 
 body {
   margin: 0;
-  background: #1e1e1e;
+  background: #e9c46a;
   color: #d4d4d4;
   font-family: "Segoe UI", Arial, sans-serif;
   display: block;
@@ -21,11 +28,91 @@ body {
   max-width: 1100px;
   margin: 0 auto;
   padding: 48px 20px 64px;
+  position: relative;
+}
+
+.card .muppet {
+  position: absolute;
+  right: var(--muppet-right, -54px);
+  bottom: var(--muppet-bottom, -52px);
+  z-index: 5;
+  pointer-events: none;
+  height: var(--muppet-size, 140px);
+  width: auto;
+  min-width: 80px;
+}
+
+.card .muppet img {
+  display: block;
+  max-height: var(--muppet-size, 140px);
+  width: auto;
+}
+
+.card .muppet img.muppet-hover {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.card:hover .muppet img.muppet-default {
+  display: none;
+}
+
+.card:hover .muppet img.muppet-hover {
+  display: block;
+}
+
+.muppet-ui {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.85);
+  color: #eee;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border-bottom-right-radius: 0;
+  font-size: 13px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.muppet-ui__title {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+
+.muppet-ui__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.muppet-ui__row:last-child {
+  margin-bottom: 0;
+}
+
+.muppet-ui input {
+  width: 70px;
+  padding: 4px 8px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background: #222;
+  color: #fff;
+  font-size: 13px;
 }
 
 .hero {
   text-align: center;
   margin-bottom: 32px;
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    max-height 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    margin 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  max-height: 200px;
+  overflow: hidden;
 }
 
 .kicker {
@@ -52,6 +139,18 @@ body {
   justify-content: center;
   margin: 18px 0 28px;
   flex-wrap: wrap;
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    max-height 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    margin 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  max-height: 120px;
+  overflow: hidden;
+}
+
+body.is-card-expanded .hero,
+body.is-card-expanded .filters {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
 }
 
 .filter-btn {
@@ -74,16 +173,63 @@ body {
 
 .grid {
   display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* máximo 2 columnas */
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: dense;
   position: relative;
 }
 
 .card {
+  position: relative;
   perspective: 1000px;
   aspect-ratio: 1 / 1; /* cards cuadrados */
   transition: opacity 0.3s ease, transform 0.3s ease;
   will-change: transform, opacity;
+  border-radius: 14px;
+  border-bottom-right-radius: 0;
+  overflow: visible;
+  border: none;
+  box-shadow: none;
+  --card-bg: transparent;
+}
+
+.missing-slot {
+  background: #2a1f1f;
+  border: 1px dashed #d16969;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d16969;
+  font-weight: 600;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.3s linear;
+  will-change: opacity;
+  transform: translateZ(0);
+}
+
+.missing-slot.is-visible {
+  opacity: 1;
+}
+
+.missing-slot.missing-leave {
+  transition: opacity 0.25s ease;
+  opacity: 0;
+}
+
+.missing-label {
+  font-size: 18px;
+}
+
+@keyframes missingFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .card:hover {
@@ -120,6 +266,8 @@ body {
   width: 100%;
   height: 100%;
   transition: opacity 0.3s ease;
+  overflow: hidden;
+  border-radius: inherit;
 }
 
 .card-face {
@@ -127,29 +275,36 @@ body {
   inset: 0;
   height: 100%;
   padding: 20px;
-  border-radius: 14px;
-  background: #252526;
-  border: 1px solid #2f2f2f;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  border-radius: inherit;
+  background: var(--card-bg);
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 12px;
   transition: opacity 0.3s ease;
+  color: #111111;
 }
+
+.card.c1 { --card-bg: #264653ff; }
+.card.c2 { --card-bg: #2a9d8fff; }
+.card.c3 { --card-bg: #e9c46aff; }
+.card.c4 { --card-bg: #f4a261ff; }
+.card.c5 { --card-bg: #e76f51ff; }
 
 .card-tag {
   position: absolute;
   top: 16px;
   left: 16px;
-  padding: 4px 10px;
+  padding: 3px 10px 5px;
   border-radius: 999px;
-  background: rgba(14, 99, 156, 0.85);
+  background: #111111;
   color: #ffffff;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.02em;
+  cursor: pointer;
+  user-select: none;
 }
 
 .card-back {
@@ -165,6 +320,14 @@ body {
 }
 
 .card:hover .card-back {
+  opacity: 1;
+}
+
+.card.is-expanded .card-front {
+  opacity: 0;
+}
+
+.card.is-expanded .card-back {
   opacity: 1;
 }
 
@@ -189,12 +352,9 @@ body {
   flex-direction: column;
   gap: 12px;
   padding: 20px;
-  justify-content: center;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.45),
-    rgba(0, 0, 0, 0.65)
-  );
+  justify-content: flex-end;
+  background: transparent;
+  color: #111111;
   transition: opacity 0.8s ease;
 }
 
@@ -211,18 +371,10 @@ body {
 .card-front p,
 .card-back p {
   margin: 0;
-  color: #b3b3b3;
+  color: inherit;
+  font-weight: 700;
 }
 
-.tag {
-  align-self: flex-start;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(78, 201, 176, 0.15);
-  color: #4ec9b0;
-  font-size: 12px;
-  font-weight: 600;
-}
 
 
 .cta {
