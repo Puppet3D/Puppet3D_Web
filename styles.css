@@ -5,6 +5,10 @@
   --grid-gap: 56px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   height: 100%;
@@ -24,11 +28,19 @@ body {
   box-sizing: border-box;
 }
 
+/* Curtain reveal / scroll overlay: cards layer rises and covers the hero */
 .page {
+  position: relative;
+  z-index: 2;
+  margin-top: 100vh;
+  margin-top: 100dvh;
+  padding: 48px 20px 64px;
+  background: #e9c46a;
+}
+
+.page .grid {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 48px 20px 64px;
-  position: relative;
 }
 
 .card .muppet {
@@ -103,6 +115,184 @@ body {
   background: #222;
   color: #fff;
   font-size: 13px;
+}
+
+.scroll-ui {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 101;
+  width: 220px;
+  background: rgba(0, 0, 0, 0.86);
+  color: #eee;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border-bottom-left-radius: 0;
+  font-size: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(3px);
+}
+
+.scroll-ui__title {
+  margin: 0 0 10px;
+  font-size: 13px;
+}
+
+.scroll-ui__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.scroll-ui__row output {
+  font-family: Consolas, "Courier New", monospace;
+  color: #e9c46a;
+}
+
+.scroll-ui__bar {
+  margin-top: 8px;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  overflow: hidden;
+}
+
+.scroll-ui__bar-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: #e9c46a;
+  transition: width 0.08s linear;
+}
+
+/* Fixed hero behind content (curtain reveal base) */
+.hero-section {
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #eee;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  padding: 24px 20px;
+}
+
+.hero-section__inner {
+  text-align: center;
+  max-width: 640px;
+}
+
+.hero-section__kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 12px;
+  color: #e9c46a;
+  margin: 0 0 16px;
+  opacity: 0;
+}
+
+.hero-section__headline {
+  margin: 0 0 32px;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero-section__headline-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(1.2em);
+}
+
+.hero-section__featured-card {
+  background: rgba(233, 196, 106, 0.12);
+  border: 1px solid rgba(233, 196, 106, 0.35);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+  position: relative;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(24px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.hero-section__card-tag {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e9c46a;
+  color: #1a1a2e;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.hero-section__card-title {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.hero-section__card-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.hero-section__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  opacity: 0;
+}
+
+.hero-section__cta {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-section__cta--primary {
+  background: #e9c46a;
+  color: #1a1a2e;
+  border: none;
+}
+
+.hero-section__cta--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(233, 196, 106, 0.4);
+}
+
+.hero-section__cta--secondary {
+  background: transparent;
+  color: #e9c46a;
+  border: 2px solid #e9c46a;
+}
+
+.hero-section__cta--secondary:hover {
+  transform: translateY(-2px);
+  background: rgba(233, 196, 106, 0.1);
 }
 
 .hero {
@@ -392,7 +582,14 @@ body.is-card-expanded .filters {
 }
 
 @media (max-width: 600px) {
-  .page {
+  .scroll-ui {
+    right: 12px;
+    bottom: 12px;
+    width: 190px;
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+  .page .grid {
     padding-top: 32px;
   }
   .grid {

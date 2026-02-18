@@ -6,7 +6,27 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="page">
+  <section class="hero-section" id="hero-section">
+    <div class="hero-section__inner">
+      <p class="hero-section__kicker">Featured</p>
+      <h1 class="hero-section__headline">
+        <span class="hero-section__headline-line">Create.</span>
+        <span class="hero-section__headline-line">Ship.</span>
+        <span class="hero-section__headline-line">Repeat.</span>
+      </h1>
+      <div class="hero-section__featured-card">
+        <span class="hero-section__card-tag">Script</span>
+        <p class="hero-section__card-title">Easy Assign Material</p>
+        <p class="hero-section__card-desc">Tu flujo en un solo lugar.</p>
+      </div>
+      <div class="hero-section__ctas">
+        <a href="#content" class="hero-section__cta hero-section__cta--primary">Ver proyectos</a>
+        <a href="#" class="hero-section__cta hero-section__cta--secondary">Saber más</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="page" id="content">
     <section class="grid">
       <article class="card c1" data-tags="ux">
         <div class="card-inner">
@@ -210,6 +230,39 @@
     </label>
   </aside>
 
+  <aside class="scroll-ui" aria-label="Diagnóstico de scroll">
+    <h3 class="scroll-ui__title">Scroll Debug</h3>
+    <div class="scroll-ui__row">
+      <span>Y (px)</span>
+      <output id="dbg-scroll-y">0</output>
+    </div>
+    <div class="scroll-ui__row">
+      <span>Página</span>
+      <output id="dbg-page-progress">0%</output>
+    </div>
+    <div class="scroll-ui__row">
+      <span>Hero</span>
+      <output id="dbg-hero-progress">0%</output>
+    </div>
+    <div class="scroll-ui__row">
+      <span>Rango hero</span>
+      <output id="dbg-hero-range">0 - 0</output>
+    </div>
+    <div class="scroll-ui__row">
+      <span>Cards top</span>
+      <output id="dbg-content-top">0px</output>
+    </div>
+    <div class="scroll-ui__row">
+      <span>Dirección</span>
+      <output id="dbg-scroll-direction">idle</output>
+    </div>
+    <div class="scroll-ui__bar" aria-hidden="true">
+      <span class="scroll-ui__bar-fill" id="dbg-page-bar"></span>
+    </div>
+  </aside>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script>
     (function muppetControls() {
       const root = document.documentElement;
@@ -228,6 +281,97 @@
         el.addEventListener("change", apply);
       });
       apply();
+    })();
+
+    (function heroSection() {
+      if (typeof gsap === "undefined") return;
+      if (typeof ScrollTrigger !== "undefined") gsap.registerPlugin(ScrollTrigger);
+
+      const hero = document.getElementById("hero-section");
+      const headlineLines = document.querySelectorAll(".hero-section__headline-line");
+      const kicker = document.querySelector(".hero-section__kicker");
+      const featuredCard = document.querySelector(".hero-section__featured-card");
+      const ctas = document.querySelector(".hero-section__ctas");
+      const content = document.getElementById("content");
+      const dbgScrollY = document.getElementById("dbg-scroll-y");
+      const dbgPageProgress = document.getElementById("dbg-page-progress");
+      const dbgHeroProgress = document.getElementById("dbg-hero-progress");
+      const dbgHeroRange = document.getElementById("dbg-hero-range");
+      const dbgContentTop = document.getElementById("dbg-content-top");
+      const dbgDirection = document.getElementById("dbg-scroll-direction");
+      const dbgPageBar = document.getElementById("dbg-page-bar");
+
+      if (!hero) return;
+
+      const getScrollDistance = () => Math.max(window.innerHeight, 1);
+      let lastScrollY = Math.round(window.scrollY || 0);
+
+      const toPct = (value) => `${Math.round(value * 100)}%`;
+      const setText = (el, value) => {
+        if (el) el.textContent = value;
+      };
+      const updateScrollDebug = () => {
+        const scrollY = Math.round(window.scrollY || 0);
+        const maxScroll = Math.max(
+          document.documentElement.scrollHeight - window.innerHeight,
+          1
+        );
+        const pageProgress = Math.min(1, Math.max(0, scrollY / maxScroll));
+        const heroStart = 0;
+        const heroEnd = Math.round(getScrollDistance());
+        const heroProgress = Math.min(
+          1,
+          Math.max(0, (scrollY - heroStart) / Math.max(heroEnd - heroStart, 1))
+        );
+        const contentTop = content
+          ? Math.round(content.getBoundingClientRect().top)
+          : 0;
+
+        let direction = "idle";
+        if (scrollY > lastScrollY) direction = "down";
+        else if (scrollY < lastScrollY) direction = "up";
+
+        setText(dbgScrollY, String(scrollY));
+        setText(dbgPageProgress, toPct(pageProgress));
+        setText(dbgHeroProgress, toPct(heroProgress));
+        setText(dbgHeroRange, `${heroStart} - ${heroEnd}`);
+        setText(dbgContentTop, `${contentTop}px`);
+        setText(dbgDirection, direction);
+        if (dbgPageBar) dbgPageBar.style.width = `${Math.round(pageProgress * 100)}%`;
+
+        lastScrollY = scrollY;
+      };
+
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      tl.set(hero, { opacity: 1 })
+        .fromTo(kicker, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6 })
+        .fromTo(
+          headlineLines,
+          { opacity: 0, y: "1.2em" },
+          { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, delay: 0.1 }
+        )
+        .fromTo(
+          featuredCard,
+          { opacity: 0, y: 24 },
+          { opacity: 1, y: 0, duration: 0.8 },
+          "-=0.3"
+        )
+        .fromTo(ctas, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5 }, "-=0.4");
+
+      gsap.to(featuredCard, {
+        y: -10,
+        duration: 2.2,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+
+      window.addEventListener("scroll", updateScrollDebug, { passive: true });
+      window.addEventListener("resize", updateScrollDebug);
+      if (typeof ScrollTrigger !== "undefined") {
+        ScrollTrigger.addEventListener("refresh", updateScrollDebug);
+      }
+      updateScrollDebug();
     })();
 
     const cards = Array.from(document.querySelectorAll(".card"));
