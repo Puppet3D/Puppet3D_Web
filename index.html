@@ -5,20 +5,16 @@
   <title>PPTest</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="settings-hidden">
   <section class="hero-section" id="hero-section">
+    <video class="hero-section__video" id="hero-video" src="videos/Hero.mp4" muted loop playsinline autoplay aria-hidden="true"></video>
+    <div class="hero-section__overlay is-gradient" id="hero-overlay" aria-hidden="true"></div>
     <div class="hero-section__inner">
       <p class="hero-section__kicker">Featured</p>
       <h1 class="hero-section__headline">
-        <span class="hero-section__headline-line">Create.</span>
-        <span class="hero-section__headline-line">Ship.</span>
-        <span class="hero-section__headline-line">Repeat.</span>
+        <span class="hero-section__headline-line">Puppet 3D</span>
       </h1>
-      <div class="hero-section__featured-card">
-        <span class="hero-section__card-tag">Script</span>
-        <p class="hero-section__card-title">Easy Assign Material</p>
-        <p class="hero-section__card-desc">Tu flujo en un solo lugar.</p>
-      </div>
+      <p class="hero-section__subtitle">Making fun modeling in 3D</p>
       <div class="hero-section__ctas">
         <a href="#content" class="hero-section__cta hero-section__cta--primary">Ver proyectos</a>
         <a href="#" class="hero-section__cta hero-section__cta--secondary">Saber más</a>
@@ -210,6 +206,270 @@
     </section>
   </main>
 
+  <aside class="hero-overlay-ui" aria-label="Overlay del Hero (video)">
+    <h3 class="hero-overlay-ui__title">Hero overlay</h3>
+    <label class="hero-overlay-ui__row">
+      <span>Opacidad video</span>
+      <input type="range" id="hero-video-opacity" min="0" max="100" value="100" />
+      <output id="hero-video-opacity-out">100%</output>
+    </label>
+    <label class="hero-overlay-ui__row">
+      <span>Ángulo video (°)</span>
+      <input type="number" id="hero-video-mask-angle" value="0" min="0" max="360" />
+    </label>
+    <span class="hero-overlay-ui__label">Falloff video</span>
+    <label class="hero-overlay-ui__row">
+      <span>Inicio %</span>
+      <input type="range" id="hero-video-falloff-start" min="0" max="100" value="0" />
+      <output id="hero-video-falloff-start-out">0%</output>
+    </label>
+      <label class="hero-overlay-ui__row">
+        <span>Fin %</span>
+        <input type="range" id="hero-video-falloff-end" min="0" max="100" value="0" />
+        <output id="hero-video-falloff-end-out">0%</output>
+      </label>
+      <label class="hero-overlay-ui__row hero-overlay-ui__row--checkbox">
+        <span>Animar falloff con scroll</span>
+        <input type="checkbox" id="hero-video-falloff-scroll" />
+      </label>
+    <label class="hero-overlay-ui__row">
+      <span>Tipo</span>
+      <select id="hero-overlay-type">
+        <option value="solid">Sólido</option>
+        <option value="gradient" selected>Gradiente</option>
+      </select>
+    </label>
+    <div class="hero-overlay-ui__group">
+      <span class="hero-overlay-ui__label">Color 1</span>
+      <label class="hero-overlay-ui__row">
+        <span>Hex</span>
+        <input type="color" id="hero-overlay-color1" value="#24293e" />
+      </label>
+      <label class="hero-overlay-ui__row">
+        <span>Opacidad</span>
+        <input type="range" id="hero-overlay-opacity1" min="0" max="100" value="0" />
+        <output id="hero-overlay-opacity1-out">0%</output>
+      </label>
+    </div>
+    <div class="hero-overlay-ui__group hero-overlay-ui__group--gradient" id="hero-overlay-group2">
+      <span class="hero-overlay-ui__label">Color 2 (gradiente)</span>
+      <label class="hero-overlay-ui__row">
+        <span>Hex</span>
+        <input type="color" id="hero-overlay-color2" value="#24293e" />
+      </label>
+      <label class="hero-overlay-ui__row">
+        <span>Opacidad</span>
+        <input type="range" id="hero-overlay-opacity2" min="0" max="100" value="0" />
+        <output id="hero-overlay-opacity2-out">0%</output>
+      </label>
+      <label class="hero-overlay-ui__row">
+        <span>Ángulo (°)</span>
+        <input type="number" id="hero-overlay-angle" value="160" min="0" max="360" />
+      </label>
+      <span class="hero-overlay-ui__label">Falloff</span>
+      <label class="hero-overlay-ui__row">
+        <span>Inicio %</span>
+        <input type="range" id="hero-overlay-falloff-start" min="0" max="100" value="0" />
+        <output id="hero-overlay-falloff-start-out">0%</output>
+      </label>
+      <label class="hero-overlay-ui__row">
+        <span>Fin %</span>
+        <input type="range" id="hero-overlay-falloff-end" min="0" max="100" value="60" />
+        <output id="hero-overlay-falloff-end-out">60%</output>
+      </label>
+    </div>
+    <div class="hero-overlay-ui__group">
+      <span class="hero-overlay-ui__label">Botón Ver proyectos</span>
+      <label class="hero-overlay-ui__row">
+        <span>Fondo</span>
+        <input type="color" id="hero-cta-primary-bg" value="#000000" />
+      </label>
+      <label class="hero-overlay-ui__row">
+        <span>Contorno</span>
+        <input type="color" id="hero-cta-primary-border" value="#e9c46a" />
+      </label>
+      <label class="hero-overlay-ui__row">
+        <span>Grosor contorno (px)</span>
+        <input type="number" id="hero-cta-primary-border-width" value="0" min="0" max="8" />
+      </label>
+      <label class="hero-overlay-ui__row">
+        <span>Color letras</span>
+        <input type="color" id="hero-cta-primary-color" value="#ffffff" />
+      </label>
+    </div>
+  </aside>
+
+  <div class="right-ui-stack">
+  <aside class="collapsible-ui hero-text-position-ui" aria-label="Posición del texto del hero">
+    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="true">
+      <span class="collapsible-ui__title">Posición texto</span>
+      <span class="collapsible-ui__toggle" aria-hidden="true">▼</span>
+    </div>
+    <div class="collapsible-ui__body">
+    <label class="hero-text-position-ui__row">
+      <span>Horizontal</span>
+      <select id="hero-text-justify">
+        <option value="flex-start">Izquierda</option>
+        <option value="center" selected>Centro</option>
+        <option value="flex-end">Derecha</option>
+      </select>
+    </label>
+    <label class="hero-text-position-ui__row">
+      <span>Vertical</span>
+      <select id="hero-text-align-items">
+        <option value="flex-start">Arriba</option>
+        <option value="center" selected>Centro</option>
+        <option value="flex-end">Abajo</option>
+      </select>
+    </label>
+    <label class="hero-text-position-ui__row">
+      <span>Alineación texto</span>
+      <select id="hero-text-align">
+        <option value="left">Izquierda</option>
+        <option value="center" selected>Centro</option>
+        <option value="right">Derecha</option>
+      </select>
+    </label>
+    <label class="hero-text-position-ui__row">
+      <span>Desplazar X (px)</span>
+      <input type="number" id="hero-text-offset-x" value="0" />
+    </label>
+    <label class="hero-text-position-ui__row">
+      <span>Desplazar Y (px)</span>
+      <input type="number" id="hero-text-offset-y" value="160" />
+    </label>
+    </div>
+  </aside>
+
+  <aside class="collapsible-ui trigger-scroll-ui" aria-label="Disparador scroll automático">
+    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="true">
+      <span class="collapsible-ui__title">Disparador (scroll automático)</span>
+      <span class="collapsible-ui__toggle" aria-hidden="true">▼</span>
+    </div>
+    <div class="collapsible-ui__body">
+      <label class="trigger-scroll-ui__row trigger-scroll-ui__row--checkbox">
+        <span>Activar</span>
+        <input type="checkbox" id="kf-trigger-enable" checked />
+      </label>
+      <label class="trigger-scroll-ui__row">
+        <span>Salir de %</span>
+        <input type="number" id="kf-trigger-threshold" value="5" min="0" max="100" />
+      </label>
+      <label class="trigger-scroll-ui__row" title="100% = inicio del grid (donde empieza el contenido)">
+        <span>Destino % (100 = inicio grid)</span>
+        <input type="number" id="kf-trigger-target" value="100" min="0" max="100" />
+      </label>
+      <label class="trigger-scroll-ui__row trigger-scroll-ui__row--checkbox">
+        <span>Inversa</span>
+        <input type="checkbox" id="kf-trigger-inverse" checked />
+      </label>
+      <label class="trigger-scroll-ui__row">
+        <span>Salir de %</span>
+        <input type="number" id="kf-trigger-inverse-leave" value="100" min="0" max="100" />
+      </label>
+      <label class="trigger-scroll-ui__row">
+        <span>Volver a %</span>
+        <input type="number" id="kf-trigger-inverse-goback" value="0" min="0" max="100" />
+      </label>
+    </div>
+  </aside>
+
+  <aside class="collapsible-ui scroll-range-ui" aria-label="Rango scroll animación">
+    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="true">
+      <span class="collapsible-ui__title">Rango scroll (animación)</span>
+      <span class="collapsible-ui__toggle" aria-hidden="true">▼</span>
+    </div>
+    <div class="collapsible-ui__body">
+      <label class="scroll-range-ui__row">
+        <span>Desde %</span>
+        <input type="number" id="kf-scroll-start" value="0" min="0" max="100" />
+      </label>
+      <label class="scroll-range-ui__row">
+        <span>Hasta %</span>
+        <input type="number" id="kf-scroll-end" value="100" min="0" max="100" />
+      </label>
+      <label class="scroll-range-ui__row">
+        <span>Interpolación</span>
+        <select id="kf-easing">
+          <option value="linear">Linear</option>
+          <option value="ease-in">Ease in</option>
+          <option value="ease-out">Ease out</option>
+          <option value="ease-in-out">Ease in-out</option>
+          <option value="ease-in-cubic">Ease in (cúbico)</option>
+          <option value="ease-out-cubic">Ease out (cúbico)</option>
+          <option value="ease-in-out-cubic">Ease in-out (cúbico)</option>
+        </select>
+      </label>
+    </div>
+  </aside>
+
+  <aside class="collapsible-ui keyframes-video-ui" aria-label="Keyframes falloff video">
+    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="true">
+      <span class="collapsible-ui__title">Keyframes video</span>
+      <span class="collapsible-ui__toggle" aria-hidden="true">▼</span>
+    </div>
+    <div class="collapsible-ui__body">
+    <div class="keyframes-video-ui__keyframe" data-kf-index="1">
+      <span class="keyframes-video-ui__label">Keyframe 1</span>
+      <label class="keyframes-video-ui__row">
+        <span>Scroll %</span>
+        <input type="number" id="kf1-scroll" value="0" min="0" max="100" />
+      </label>
+      <label class="keyframes-video-ui__row">
+        <span>Inicio %</span>
+        <input type="number" id="kf1-inicio" value="0" min="0" max="100" />
+      </label>
+      <label class="keyframes-video-ui__row">
+        <span>Fin %</span>
+        <input type="number" id="kf1-fin" value="20" min="0" max="100" />
+      </label>
+      <div class="keyframes-video-ui__btns">
+        <button type="button" class="keyframes-video-ui__btn" data-kf-scroll="kf1-scroll">Ir a scroll</button>
+        <button type="button" class="keyframes-video-ui__btn keyframes-video-ui__btn--danger" data-kf-delete="1">Borrar</button>
+      </div>
+    </div>
+    <div class="keyframes-video-ui__keyframe" data-kf-index="2">
+      <span class="keyframes-video-ui__label">Keyframe 2</span>
+      <label class="keyframes-video-ui__row">
+        <span>Scroll %</span>
+        <input type="number" id="kf2-scroll" value="75" min="0" max="100" />
+      </label>
+      <label class="keyframes-video-ui__row">
+        <span>Inicio %</span>
+        <input type="number" id="kf2-inicio" value="80" min="0" max="100" />
+      </label>
+      <label class="keyframes-video-ui__row">
+        <span>Fin %</span>
+        <input type="number" id="kf2-fin" value="100" min="0" max="100" />
+      </label>
+      <div class="keyframes-video-ui__btns">
+        <button type="button" class="keyframes-video-ui__btn" data-kf-scroll="kf2-scroll">Ir a scroll</button>
+        <button type="button" class="keyframes-video-ui__btn keyframes-video-ui__btn--danger" data-kf-delete="2">Borrar</button>
+      </div>
+    </div>
+    <div class="keyframes-video-ui__keyframe" data-kf-index="3">
+      <span class="keyframes-video-ui__label">Keyframe 3</span>
+      <label class="keyframes-video-ui__row">
+        <span>Scroll %</span>
+        <input type="number" id="kf3-scroll" value="100" min="0" max="100" />
+      </label>
+      <label class="keyframes-video-ui__row">
+        <span>Inicio %</span>
+        <input type="number" id="kf3-inicio" value="100" min="0" max="100" />
+      </label>
+      <label class="keyframes-video-ui__row">
+        <span>Fin %</span>
+        <input type="number" id="kf3-fin" value="100" min="0" max="100" />
+      </label>
+      <div class="keyframes-video-ui__btns">
+        <button type="button" class="keyframes-video-ui__btn" data-kf-scroll="kf3-scroll">Ir a scroll</button>
+        <button type="button" class="keyframes-video-ui__btn keyframes-video-ui__btn--danger" data-kf-delete="3">Borrar</button>
+      </div>
+    </div>
+    </div>
+  </aside>
+  </div>
+
   <aside class="muppet-ui" aria-label="Ajustar muppet">
     <h3 class="muppet-ui__title">Muppet</h3>
     <label class="muppet-ui__row">
@@ -232,6 +492,14 @@
 
   <aside class="scroll-ui" aria-label="Diagnóstico de scroll">
     <h3 class="scroll-ui__title">Scroll Debug</h3>
+    <div class="scroll-ui__row">
+      <span>Ancho (px)</span>
+      <output id="dbg-viewport-width">0</output>
+    </div>
+    <div class="scroll-ui__row">
+      <span>Alto (px)</span>
+      <output id="dbg-viewport-height">0</output>
+    </div>
     <div class="scroll-ui__row">
       <span>Y (px)</span>
       <output id="dbg-scroll-y">0</output>
@@ -261,9 +529,39 @@
     </div>
   </aside>
 
+  <button type="button" id="toggle-settings-ui" class="settings-toggle" aria-label="Mostrar u ocultar todos los paneles de ajustes" title="Mostrar / ocultar paneles">
+    <span class="settings-toggle__label">UI</span>
+  </button>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script>
+    (function toggleSettingsUI() {
+      var btn = document.getElementById("toggle-settings-ui");
+      if (btn) {
+        btn.addEventListener("click", function () {
+          document.body.classList.toggle("settings-hidden");
+          btn.setAttribute("aria-pressed", document.body.classList.contains("settings-hidden") ? "true" : "false");
+        });
+        btn.setAttribute("aria-pressed", document.body.classList.contains("settings-hidden") ? "true" : "false");
+      }
+    })();
+
+    (function collapsiblePanels() {
+      document.querySelectorAll(".collapsible-ui__header").forEach(function (header) {
+        var panel = header.closest(".collapsible-ui");
+        if (!panel) return;
+        function toggle() {
+          panel.classList.toggle("is-collapsed");
+          header.setAttribute("aria-expanded", panel.classList.contains("is-collapsed") ? "false" : "true");
+        }
+        header.addEventListener("click", toggle);
+        header.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
+        });
+      });
+    })();
+
     (function muppetControls() {
       const root = document.documentElement;
       const rightInput = document.getElementById("muppet-right");
@@ -283,6 +581,128 @@
       apply();
     })();
 
+    (function heroOverlayControls() {
+      var hexToRgb = function (hex) {
+        var m = hex.replace(/^#/, "").match(/^([a-f0-9]{2})([a-f0-9]{2})([a-f0-9]{2})$/i);
+        return m ? m.slice(1).map(function (x) { return parseInt(x, 16); }).join(", ") : "26, 26, 46";
+      };
+      var heroSection = document.getElementById("hero-section");
+      var overlay = document.getElementById("hero-overlay");
+      var videoOpacityInput = document.getElementById("hero-video-opacity");
+      var videoOpacityOut = document.getElementById("hero-video-opacity-out");
+      var videoMaskAngleInput = document.getElementById("hero-video-mask-angle");
+      var videoFalloffStart = document.getElementById("hero-video-falloff-start");
+      var videoFalloffEnd = document.getElementById("hero-video-falloff-end");
+      var videoFalloffStartOut = document.getElementById("hero-video-falloff-start-out");
+      var videoFalloffEndOut = document.getElementById("hero-video-falloff-end-out");
+      var typeSelect = document.getElementById("hero-overlay-type");
+      var color1 = document.getElementById("hero-overlay-color1");
+      var opacity1 = document.getElementById("hero-overlay-opacity1");
+      var opacity1Out = document.getElementById("hero-overlay-opacity1-out");
+      var color2 = document.getElementById("hero-overlay-color2");
+      var opacity2 = document.getElementById("hero-overlay-opacity2");
+      var opacity2Out = document.getElementById("hero-overlay-opacity2-out");
+      var angleInput = document.getElementById("hero-overlay-angle");
+      var group2 = document.getElementById("hero-overlay-group2");
+      var falloffStart = document.getElementById("hero-overlay-falloff-start");
+      var falloffEnd = document.getElementById("hero-overlay-falloff-end");
+      var falloffStartOut = document.getElementById("hero-overlay-falloff-start-out");
+      var falloffEndOut = document.getElementById("hero-overlay-falloff-end-out");
+      var ctaPrimaryBg = document.getElementById("hero-cta-primary-bg");
+      var ctaPrimaryBorder = document.getElementById("hero-cta-primary-border");
+      var ctaPrimaryBorderWidth = document.getElementById("hero-cta-primary-border-width");
+      var ctaPrimaryColor = document.getElementById("hero-cta-primary-color");
+      var animateFalloffCheck = document.getElementById("hero-video-falloff-scroll");
+
+      function apply() {
+        if (!heroSection || !overlay) return;
+        var isGradient = typeSelect ? typeSelect.value === "gradient" : false;
+        var op1 = (opacity1.value | 0) / 100;
+        var op2 = (opacity2.value | 0) / 100;
+        var angle = (angleInput.value | 0) + "deg";
+        var falloffStartVal = (falloffStart && falloffStart.value) ? (falloffStart.value | 0) : 0;
+        var falloffEndVal = (falloffEnd && falloffEnd.value) ? (falloffEnd.value | 0) : 100;
+        if (falloffEndVal < falloffStartVal) falloffEndVal = falloffStartVal;
+
+        heroSection.style.setProperty("--hero-overlay-rgb1", hexToRgb(color1.value));
+        heroSection.style.setProperty("--hero-overlay-op1", op1);
+        heroSection.style.setProperty("--hero-overlay-rgb2", hexToRgb(color2.value));
+        heroSection.style.setProperty("--hero-overlay-op2", op2);
+        heroSection.style.setProperty("--hero-overlay-angle", angle);
+        heroSection.style.setProperty("--hero-overlay-falloff-start", falloffStartVal + "%");
+        heroSection.style.setProperty("--hero-overlay-falloff-end", falloffEndVal + "%");
+        var videoOp = (videoOpacityInput && videoOpacityInput.value) ? (videoOpacityInput.value | 0) / 100 : 1;
+        heroSection.style.setProperty("--hero-video-opacity", videoOp);
+        var videoMaskAngle = (videoMaskAngleInput && videoMaskAngleInput.value) ? (videoMaskAngleInput.value | 0) + "deg" : "160deg";
+        heroSection.style.setProperty("--hero-video-mask-angle", videoMaskAngle);
+        var animateFalloffWithScroll = animateFalloffCheck && animateFalloffCheck.checked;
+        if (!animateFalloffWithScroll) {
+          var videoFalloffStartVal = (videoFalloffStart && videoFalloffStart.value) ? (videoFalloffStart.value | 0) : 0;
+          var videoFalloffEndVal = (videoFalloffEnd && videoFalloffEnd.value) ? (videoFalloffEnd.value | 0) : 60;
+          if (videoFalloffEndVal < videoFalloffStartVal) videoFalloffEndVal = videoFalloffStartVal;
+          heroSection.style.setProperty("--hero-video-falloff-start", videoFalloffStartVal + "%");
+          heroSection.style.setProperty("--hero-video-falloff-end", videoFalloffEndVal + "%");
+        }
+        if (ctaPrimaryBg) heroSection.style.setProperty("--hero-cta-primary-bg", ctaPrimaryBg.value);
+        if (ctaPrimaryBorder) heroSection.style.setProperty("--hero-cta-primary-border", ctaPrimaryBorder.value);
+        if (ctaPrimaryBorderWidth) heroSection.style.setProperty("--hero-cta-primary-border-width", (ctaPrimaryBorderWidth.value | 0) + "px");
+        if (ctaPrimaryColor) heroSection.style.setProperty("--hero-cta-primary-color", ctaPrimaryColor.value);
+        overlay.classList.toggle("is-gradient", isGradient);
+        if (group2) group2.style.display = isGradient ? "block" : "none";
+      }
+
+      function updateOutputs() {
+        if (videoOpacityOut) videoOpacityOut.textContent = (videoOpacityInput ? videoOpacityInput.value | 0 : 100) + "%";
+        if (opacity1Out) opacity1Out.textContent = (opacity1.value | 0) + "%";
+        if (opacity2Out) opacity2Out.textContent = (opacity2.value | 0) + "%";
+        if (falloffStartOut) falloffStartOut.textContent = (falloffStart ? falloffStart.value | 0 : 0) + "%";
+        if (falloffEndOut) falloffEndOut.textContent = (falloffEnd ? falloffEnd.value | 0 : 100) + "%";
+        if (videoFalloffStartOut) videoFalloffStartOut.textContent = (videoFalloffStart ? videoFalloffStart.value | 0 : 0) + "%";
+        if (videoFalloffEndOut) videoFalloffEndOut.textContent = (videoFalloffEnd ? videoFalloffEnd.value | 0 : 60) + "%";
+      }
+
+      [videoOpacityInput, videoMaskAngleInput, videoFalloffStart, videoFalloffEnd, animateFalloffCheck, typeSelect, color1, opacity1, color2, opacity2, angleInput, falloffStart, falloffEnd, ctaPrimaryBg, ctaPrimaryBorder, ctaPrimaryBorderWidth, ctaPrimaryColor].forEach(function (el) {
+        if (!el) return;
+        el.addEventListener("input", function () {
+          if (window.__updatingVideoFalloffFromScroll) return;
+          apply();
+          updateOutputs();
+        });
+        el.addEventListener("change", function () {
+          if (window.__updatingVideoFalloffFromScroll) return;
+          apply();
+          updateOutputs();
+        });
+      });
+      apply();
+      updateOutputs();
+    })();
+
+    (function heroTextPositionControls() {
+      var heroSection = document.getElementById("hero-section");
+      var justifySelect = document.getElementById("hero-text-justify");
+      var alignItemsSelect = document.getElementById("hero-text-align-items");
+      var textAlignSelect = document.getElementById("hero-text-align");
+      var offsetX = document.getElementById("hero-text-offset-x");
+      var offsetY = document.getElementById("hero-text-offset-y");
+
+      function apply() {
+        if (!heroSection) return;
+        heroSection.style.setProperty("--hero-justify-content", justifySelect ? justifySelect.value : "center");
+        heroSection.style.setProperty("--hero-align-items", alignItemsSelect ? alignItemsSelect.value : "center");
+        heroSection.style.setProperty("--hero-text-align", textAlignSelect ? textAlignSelect.value : "center");
+        heroSection.style.setProperty("--hero-text-offset-x", (offsetX && offsetX.value !== "" ? (offsetX.value | 0) : 0) + "px");
+        heroSection.style.setProperty("--hero-text-offset-y", (offsetY && offsetY.value !== "" ? (offsetY.value | 0) : 0) + "px");
+      }
+
+      [justifySelect, alignItemsSelect, textAlignSelect, offsetX, offsetY].forEach(function (el) {
+        if (!el) return;
+        el.addEventListener("input", apply);
+        el.addEventListener("change", apply);
+      });
+      apply();
+    })();
+
     (function heroSection() {
       if (typeof gsap === "undefined") return;
       if (typeof ScrollTrigger !== "undefined") gsap.registerPlugin(ScrollTrigger);
@@ -290,9 +710,11 @@
       const hero = document.getElementById("hero-section");
       const headlineLines = document.querySelectorAll(".hero-section__headline-line");
       const kicker = document.querySelector(".hero-section__kicker");
-      const featuredCard = document.querySelector(".hero-section__featured-card");
+      const subtitle = document.querySelector(".hero-section__subtitle");
       const ctas = document.querySelector(".hero-section__ctas");
       const content = document.getElementById("content");
+      const dbgViewportWidth = document.getElementById("dbg-viewport-width");
+      const dbgViewportHeight = document.getElementById("dbg-viewport-height");
       const dbgScrollY = document.getElementById("dbg-scroll-y");
       const dbgPageProgress = document.getElementById("dbg-page-progress");
       const dbgHeroProgress = document.getElementById("dbg-hero-progress");
@@ -303,8 +725,23 @@
 
       if (!hero) return;
 
+      const heroVideo = document.getElementById("hero-video");
+      if (heroVideo) {
+        heroVideo.play().catch(() => {});
+        document.body.addEventListener("click", function startHeroVideo() {
+          heroVideo.play().catch(() => {});
+          document.body.removeEventListener("click", startHeroVideo);
+        }, { once: true });
+      }
+
       const getScrollDistance = () => Math.max(window.innerHeight, 1);
       let lastScrollY = Math.round(window.scrollY || 0);
+      let lastHeroProgress = Math.min(
+        1,
+        Math.max(0, lastScrollY / Math.max(getScrollDistance(), 1))
+      );
+      let triggerArmed = true;
+      let inverseArmed = false;
 
       const toPct = (value) => `${Math.round(value * 100)}%`;
       const setText = (el, value) => {
@@ -323,14 +760,132 @@
           1,
           Math.max(0, (scrollY - heroStart) / Math.max(heroEnd - heroStart, 1))
         );
-        const contentTop = content
-          ? Math.round(content.getBoundingClientRect().top)
-          : 0;
-
         let direction = "idle";
         if (scrollY > lastScrollY) direction = "down";
         else if (scrollY < lastScrollY) direction = "up";
 
+        const triggerCheck = document.getElementById("kf-trigger-enable");
+        const thresholdEl = document.getElementById("kf-trigger-threshold");
+        const targetEl = document.getElementById("kf-trigger-target");
+        if (triggerCheck && triggerCheck.checked && thresholdEl && targetEl) {
+          const thresholdRaw = parseFloat(thresholdEl.value);
+          const targetRaw = parseFloat(targetEl.value);
+          const thresholdPct =
+            Math.max(0, Math.min(100, Number.isFinite(thresholdRaw) ? thresholdRaw : 5)) / 100;
+          const targetPct =
+            Math.max(0, Math.min(100, Number.isFinite(targetRaw) ? targetRaw : 100)) / 100;
+
+          if (heroProgress <= thresholdPct) triggerArmed = true;
+
+          if (direction === "down" && heroProgress > thresholdPct && triggerArmed) {
+            triggerArmed = false;
+            const targetScroll = Math.round(targetPct * heroEnd);
+            window.scrollTo({ top: targetScroll, behavior: "smooth" });
+          }
+        } else {
+          triggerArmed = true;
+        }
+
+        const inverseCheck = document.getElementById("kf-trigger-inverse");
+        const inverseLeaveEl = document.getElementById("kf-trigger-inverse-leave");
+        const inverseGobackEl = document.getElementById("kf-trigger-inverse-goback");
+        if (inverseCheck && inverseCheck.checked && inverseLeaveEl && inverseGobackEl) {
+          const leaveRaw = parseFloat(inverseLeaveEl.value);
+          const gobackRaw = parseFloat(inverseGobackEl.value);
+          const leavePct =
+            Math.max(0, Math.min(100, Number.isFinite(leaveRaw) ? leaveRaw : 100)) / 100;
+          const gobackPct =
+            Math.max(0, Math.min(100, Number.isFinite(gobackRaw) ? gobackRaw : 0)) / 100;
+
+          if (heroProgress >= leavePct) inverseArmed = true;
+
+          if (direction === "up" && heroProgress < leavePct && inverseArmed) {
+            inverseArmed = false;
+            const gobackScroll = Math.round(gobackPct * heroEnd);
+            window.scrollTo({ top: gobackScroll, behavior: "smooth" });
+          }
+        } else {
+          inverseArmed = false;
+        }
+        const contentTop = content
+          ? Math.round(content.getBoundingClientRect().top)
+          : 0;
+
+        const animateFalloffCheck = document.getElementById("hero-video-falloff-scroll");
+        if (hero && animateFalloffCheck && animateFalloffCheck.checked) {
+          var easingFns = {
+            linear: function (t) { return t; },
+            "ease-in": function (t) { return t * t; },
+            "ease-out": function (t) { return t * (2 - t); },
+            "ease-in-out": function (t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; },
+            "ease-in-cubic": function (t) { return t * t * t; },
+            "ease-out-cubic": function (t) { return 1 - Math.pow(1 - t, 3); },
+            "ease-in-out-cubic": function (t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+          };
+          var easeSelect = document.getElementById("kf-easing");
+          var easeName = (easeSelect && easeSelect.value) ? easeSelect.value : "linear";
+          var easeFn = easingFns[easeName] || easingFns.linear;
+          var getVal = function (id) { var el = document.getElementById(id); return el && el.value !== "" ? parseFloat(el.value) : 0; };
+          var keyframes = [];
+          [1, 2, 3].forEach(function (idx) {
+            var scrollEl = document.getElementById("kf" + idx + "-scroll");
+            if (scrollEl && document.body.contains(scrollEl)) {
+              keyframes.push({
+                s: getVal("kf" + idx + "-scroll") / 100,
+                i: getVal("kf" + idx + "-inicio"),
+                f: getVal("kf" + idx + "-fin")
+              });
+            }
+          });
+          keyframes.sort(function (a, b) { return a.s - b.s; });
+          var scrollStartPct = getVal("kf-scroll-start") / 100;
+          var scrollEndPct = getVal("kf-scroll-end") / 100;
+          if (scrollEndPct <= scrollStartPct) scrollEndPct = scrollStartPct + 0.01;
+          var animProgress = heroProgress <= scrollStartPct ? 0 : (heroProgress >= scrollEndPct ? 1 : (heroProgress - scrollStartPct) / (scrollEndPct - scrollStartPct));
+          var videoInicio, videoFin;
+          if (keyframes.length === 0) {
+            videoInicio = 0;
+            videoFin = 80;
+          } else if (keyframes.length === 1) {
+            videoInicio = keyframes[0].i;
+            videoFin = keyframes[0].f;
+          } else {
+            if (animProgress <= keyframes[0].s) {
+              videoInicio = keyframes[0].i;
+              videoFin = keyframes[0].f;
+            } else if (animProgress >= keyframes[keyframes.length - 1].s) {
+              videoInicio = keyframes[keyframes.length - 1].i;
+              videoFin = keyframes[keyframes.length - 1].f;
+            } else {
+              var seg = 0;
+              for (var i = 0; i < keyframes.length - 1; i++) {
+                if (animProgress >= keyframes[i].s && animProgress <= keyframes[i + 1].s) { seg = i; break; }
+              }
+              var k0 = keyframes[seg];
+              var k1 = keyframes[seg + 1];
+              var den = k1.s - k0.s;
+              var t = (den > 1e-6) ? Math.max(0, Math.min(1, (animProgress - k0.s) / den)) : 1;
+              var te = easeFn(t);
+              videoInicio = Math.round(k0.i + (k1.i - k0.i) * te);
+              videoFin = Math.round(k0.f + (k1.f - k0.f) * te);
+            }
+          }
+          hero.style.setProperty("--hero-video-falloff-start", videoInicio + "%");
+          hero.style.setProperty("--hero-video-falloff-end", videoFin + "%");
+          window.__updatingVideoFalloffFromScroll = true;
+          var vfStartEl = document.getElementById("hero-video-falloff-start");
+          var vfEndEl = document.getElementById("hero-video-falloff-end");
+          var vfStartOut = document.getElementById("hero-video-falloff-start-out");
+          var vfEndOut = document.getElementById("hero-video-falloff-end-out");
+          if (vfStartEl) vfStartEl.value = videoInicio;
+          if (vfEndEl) vfEndEl.value = videoFin;
+          if (vfStartOut) vfStartOut.textContent = videoInicio + "%";
+          if (vfEndOut) vfEndOut.textContent = videoFin + "%";
+          window.__updatingVideoFalloffFromScroll = false;
+        }
+
+        setText(dbgViewportWidth, String(window.innerWidth));
+        setText(dbgViewportHeight, String(window.innerHeight));
         setText(dbgScrollY, String(scrollY));
         setText(dbgPageProgress, toPct(pageProgress));
         setText(dbgHeroProgress, toPct(heroProgress));
@@ -340,6 +895,7 @@
         if (dbgPageBar) dbgPageBar.style.width = `${Math.round(pageProgress * 100)}%`;
 
         lastScrollY = scrollY;
+        lastHeroProgress = heroProgress;
       };
 
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -351,20 +907,12 @@
           { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, delay: 0.1 }
         )
         .fromTo(
-          featuredCard,
-          { opacity: 0, y: 24 },
-          { opacity: 1, y: 0, duration: 0.8 },
+          subtitle,
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: 0.6 },
           "-=0.3"
         )
         .fromTo(ctas, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5 }, "-=0.4");
-
-      gsap.to(featuredCard, {
-        y: -10,
-        duration: 2.2,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
 
       window.addEventListener("scroll", updateScrollDebug, { passive: true });
       window.addEventListener("resize", updateScrollDebug);
@@ -372,6 +920,42 @@
         ScrollTrigger.addEventListener("refresh", updateScrollDebug);
       }
       updateScrollDebug();
+    })();
+
+    (function keyframesVideoLive() {
+      var ids = ["kf-easing", "kf-scroll-start", "kf-scroll-end", "kf1-scroll", "kf1-inicio", "kf1-fin", "kf2-scroll", "kf2-inicio", "kf2-fin", "kf3-scroll", "kf3-inicio", "kf3-fin"];
+      function triggerFalloffUpdate() {
+        window.dispatchEvent(new Event("scroll"));
+      }
+      ids.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) {
+          el.addEventListener("input", triggerFalloffUpdate);
+          el.addEventListener("change", triggerFalloffUpdate);
+        }
+      });
+      var heroEnd = function () { return Math.max(window.innerHeight, 1); };
+      document.querySelectorAll(".keyframes-video-ui__btn[data-kf-scroll]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var inputId = btn.getAttribute("data-kf-scroll");
+          var input = inputId ? document.getElementById(inputId) : null;
+          if (!input) return;
+          var pct = parseFloat(input.value);
+          if (Number.isNaN(pct)) return;
+          var target = (Math.max(0, Math.min(100, pct)) / 100) * heroEnd();
+          window.scrollTo({ top: target, behavior: "smooth" });
+        });
+      });
+      document.querySelectorAll(".keyframes-video-ui__btn[data-kf-delete]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var index = btn.getAttribute("data-kf-delete");
+          var block = document.querySelector(".keyframes-video-ui__keyframe[data-kf-index=\"" + index + "\"]");
+          if (block && block.parentNode) {
+            block.parentNode.removeChild(block);
+            window.dispatchEvent(new Event("scroll"));
+          }
+        });
+      });
     })();
 
     const cards = Array.from(document.querySelectorAll(".card"));
