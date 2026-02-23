@@ -5,7 +5,7 @@
 }
 
 :root {
-  --hero-viewport-height: 100dvh;
+  --viewport-height: 100svh;
   --gallery-offset-y: 0px;
   --grid-gap: 56px;
 }
@@ -84,7 +84,7 @@ body {
 /* Gallery Anchor - Visual marker for scroll auto-positioning */
 .gallery-anchor {
   position: absolute;
-  top: var(--hero-viewport-height);
+  top: var(--viewport-height);
   left: 0;
   right: 0;
   z-index: 9999;
@@ -133,7 +133,7 @@ body {
 .page {
   position: relative;
   z-index: 2;
-  margin-top: var(--hero-viewport-height);
+  margin-top: var(--viewport-height);
   padding: 48px 20px 64px;
   background: #e9c46a;
 }
@@ -646,8 +646,8 @@ body.settings-hidden .scroll-ui {
 
 /* Fixed hero behind content (curtain reveal base) */
 .hero-section {
-  min-height: var(--hero-viewport-height);
-  height: var(--hero-viewport-height);
+  min-height: var(--viewport-height);
+  height: var(--viewport-height);
   display: flex;
   align-items: var(--hero-align-items, center);
   justify-content: var(--hero-justify-content, center);
@@ -1135,21 +1135,6 @@ body.is-card-expanded .filters {
     text-align: center;
   }
 
-  /* Mobile Safari/Chrome can stutter with CSS video masking and re-rasterize at end.
-     Disable mask and transitions to keep the hero video visually stable. */
-  .hero-section__video {
-    mask-image: none;
-    -webkit-mask-image: none;
-    transition: none;
-    transform: translateZ(0) scale(1.01);
-    transform-origin: center center;
-    will-change: transform;
-  }
-
-  .hero-section__overlay {
-    transition: none;
-  }
-
   /* Auth header - mejor espaciado */
   .auth-header {
     padding: 12px 16px;
@@ -1220,11 +1205,6 @@ body.is-card-expanded .filters {
   .hero-anchor__label,
   .gallery-anchor__label {
     display: none;
-  }
-
-  /* En móvil, svh evita el "saltito" por cambios de barras del navegador */
-  :root {
-    --hero-viewport-height: 100svh;
   }
 }
 
