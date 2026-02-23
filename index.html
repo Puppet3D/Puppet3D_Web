@@ -827,6 +827,8 @@
       let inverseArmed = false;
       let wasInGalleryThreshold = false;
       let wasInHeroThreshold = false;
+      let isAutoScrolling = false; // Flag para prevenir múltiples disparos
+      let autoScrollTargetY = null;
 
       const toPct = (value) => `${Math.round(value * 100)}%`;
       const setText = (el, value) => {
@@ -897,6 +899,24 @@
           // Check if viewport top is currently within the threshold range
           const isInThreshold = viewportTop >= thresholdTop && viewportTop <= thresholdBottom;
 
+          // No evaluar triggers mientras corre un auto-scroll.
+          // Se libera cuando llegamos al target real guardado.
+          if (isAutoScrolling) {
+            const targetScroll = typeof autoScrollTargetY === "number"
+              ? autoScrollTargetY
+              : Math.round(targetPct * heroEnd);
+            const scrollDiff = Math.abs(viewportTop - targetScroll);
+            if (scrollDiff < 6) {
+              isAutoScrolling = false;
+              autoScrollTargetY = null;
+              triggerArmed = true;
+              inverseArmed = true;
+              wasInGalleryThreshold = false;
+              wasInHeroThreshold = false;
+            }
+            return; // evitar re-disparos durante animacion
+          }
+
           // Reset trigger if viewport top is within the threshold range
           if (isInThreshold) {
             triggerArmed = true;
@@ -906,8 +926,14 @@
             if (wasInGalleryThreshold && direction === "down" && viewportTop > thresholdBottom && triggerArmed) {
               triggerArmed = false;
               wasInGalleryThreshold = false;
+              isAutoScrolling = true; // Marcar que estamos en scroll automático
               const targetScroll = Math.round(targetPct * heroEnd);
-              window.scrollTo({ top: targetScroll, behavior: "smooth" });
+              autoScrollTargetY = targetScroll;
+              
+              // Usar requestAnimationFrame para asegurar que el scroll sea preciso
+              requestAnimationFrame(() => {
+                window.scrollTo({ top: targetScroll, behavior: "smooth" });
+              });
             } else if (!isInThreshold) {
               // We're outside, but weren't inside before, so reset the flag
               wasInGalleryThreshold = false;
@@ -960,6 +986,19 @@
           // Check if viewport top is currently within the threshold range
           const isInThreshold = viewportTop >= thresholdTop && viewportTop <= thresholdBottom;
 
+          // No evaluar trigger si ya estamos haciendo scroll automático
+          if (isAutoScrolling) {
+            // Verificar si el scroll automático ha terminado (estamos cerca del target)
+            const scrollDiff = Math.abs(viewportTop - gobackScroll);
+            if (scrollDiff < 5) {
+              // Hemos llegado al destino, resetear flag
+              isAutoScrolling = false;
+              inverseArmed = true;
+              wasInHeroThreshold = false;
+            }
+            return; // Salir temprano si estamos en scroll automático
+          }
+
           // Reset trigger if viewport top is within the threshold range
           if (isInThreshold) {
             inverseArmed = true;
@@ -969,7 +1008,13 @@
             if (wasInHeroThreshold && direction === "up" && viewportTop < thresholdTop && inverseArmed) {
               inverseArmed = false;
               wasInHeroThreshold = false;
-              window.scrollTo({ top: gobackScroll, behavior: "smooth" });
+              isAutoScrolling = true; // Marcar que estamos en scroll automático
+              autoScrollTargetY = gobackScroll;
+              
+              // Usar requestAnimationFrame para asegurar que el scroll sea preciso
+              requestAnimationFrame(() => {
+                window.scrollTo({ top: gobackScroll, behavior: "smooth" });
+              });
             } else if (!isInThreshold) {
               // We're outside, but weren't inside before, so reset the flag
               wasInHeroThreshold = false;
