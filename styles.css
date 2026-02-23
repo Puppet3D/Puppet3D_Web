@@ -1135,6 +1135,21 @@ body.is-card-expanded .filters {
     text-align: center;
   }
 
+  /* Mobile Safari/Chrome can stutter with CSS video masking and re-rasterize at end.
+     Disable mask and transitions to keep the hero video visually stable. */
+  .hero-section__video {
+    mask-image: none;
+    -webkit-mask-image: none;
+    transition: none;
+    transform: translateZ(0) scale(1.01);
+    transform-origin: center center;
+    will-change: transform;
+  }
+
+  .hero-section__overlay {
+    transition: none;
+  }
+
   /* Auth header - mejor espaciado */
   .auth-header {
     padding: 12px 16px;

@@ -911,6 +911,8 @@
               : Math.round(targetPct * heroEnd);
             const scrollDiff = Math.abs(viewportTop - targetScroll);
             if (scrollDiff < 6) {
+              // Final snap to avoid last-frame wobble on mobile browsers.
+              window.scrollTo({ top: targetScroll, behavior: "auto" });
               isAutoScrolling = false;
               autoScrollTargetY = null;
               triggerArmed = true;
