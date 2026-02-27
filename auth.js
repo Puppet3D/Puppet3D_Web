@@ -78,10 +78,15 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.card.is-owned').forEach(card => {
         card.classList.remove('is-owned');
       });
+
+      // Hide bundle download button
+      if (typeof window.updateBundleDownloadButton === 'function') {
+        window.updateBundleDownloadButton(null);
+      }
     }
   }
 
-  // Load user's purchases from Firestore and mark owned cards
+  // Load user's license from Firestore and check subscription status
   async function loadUserPurchases(user) {
     if (typeof firebase === 'undefined' || !firebase.firestore) {
       console.error('Firestore not initialized');
@@ -91,38 +96,71 @@ document.addEventListener('DOMContentLoaded', () => {
     const db = firebase.firestore();
 
     try {
-      // Query Firestore for purchases by user_id (UID)
-      // Since users can only buy when logged in, we use the UID
-      const purchasesRef = db.collection('purchases');
-      const querySnapshot = await purchasesRef
-        .where('user_id', '==', user.uid)
-        .where('payment_status', '==', 'paid')
-        .get();
+      // Get user's license document (user_id as document ID)
+      const userLicenseRef = db.collection('user_licenses').doc(user.uid);
+      const userLicenseDoc = await userLicenseRef.get();
 
-      const ownedProductIds = new Set();
-      querySnapshot.forEach(doc => {
-        const data = doc.data();
-        if (data.product_id) {
-          ownedProductIds.add(data.product_id);
-        }
-      });
-
-      // Mark cards as owned
-      document.querySelectorAll('.card[data-product-id]').forEach(card => {
-        const productId = card.getAttribute('data-product-id');
-        if (ownedProductIds.has(productId)) {
-          card.classList.add('is-owned');
-        } else {
+      if (!userLicenseDoc.exists) {
+        // No license document found - user has no subscription
+        document.querySelectorAll('.card[data-product-id]').forEach(card => {
           card.classList.remove('is-owned');
+        });
+        
+        // Update buy buttons visibility (if stripe-checkout.js is loaded)
+        if (typeof window.updateOwnedProducts === 'function') {
+          window.updateOwnedProducts([]);
         }
-      });
+        
+        // Update subscription status in UI (if function exists)
+        if (typeof window.updateSubscriptionStatus === 'function') {
+          window.updateSubscriptionStatus(null);
+        }
+        return;
+      }
 
-      // Update buy buttons visibility (if stripe-checkout.js is loaded)
-      if (typeof window.updateOwnedProducts === 'function') {
-        window.updateOwnedProducts(Array.from(ownedProductIds));
+      const licenseData = userLicenseDoc.data();
+      const hasActiveSubscription = licenseData.subscription_status === 'active';
+
+      if (hasActiveSubscription) {
+        // User has active subscription - mark all cards as owned (access to all scripts)
+        document.querySelectorAll('.card[data-product-id]').forEach(card => {
+          card.classList.add('is-owned');
+        });
+
+        // Update buy buttons visibility (if stripe-checkout.js is loaded)
+        // With subscription model, all products are accessible, so no "Buy" buttons needed
+        if (typeof window.updateOwnedProducts === 'function') {
+          // Get all product IDs from cards
+          const allProductIds = Array.from(document.querySelectorAll('.card[data-product-id]'))
+            .map(card => card.getAttribute('data-product-id'));
+          window.updateOwnedProducts(allProductIds);
+        }
+      } else {
+        // Subscription inactive or canceled - no access
+        document.querySelectorAll('.card[data-product-id]').forEach(card => {
+          card.classList.remove('is-owned');
+        });
+        
+        if (typeof window.updateOwnedProducts === 'function') {
+          window.updateOwnedProducts([]);
+        }
+      }
+
+      // Update subscription status in UI (if function exists)
+      if (typeof window.updateSubscriptionStatus === 'function') {
+        window.updateSubscriptionStatus({
+          status: licenseData.subscription_status,
+          current_period_end: licenseData.current_period_end,
+          cancel_at_period_end: licenseData.cancel_at_period_end
+        });
+      }
+
+      // Update bundle download button visibility (if function exists)
+      if (typeof window.updateBundleDownloadButton === 'function') {
+        window.updateBundleDownloadButton(user);
       }
     } catch (error) {
-      console.error('Error loading user purchases:', error);
+      console.error('Error loading user license:', error);
     }
   }
 

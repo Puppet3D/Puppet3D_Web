@@ -12,6 +12,7 @@
     <div class="auth-header__inner">
       <button type="button" class="auth-header__btn" id="auth-login-btn">Login</button>
       <div class="auth-header__account" id="auth-account-btn" style="display: none;">
+        <button type="button" class="auth-header__btn bundle-download-btn" id="bundle-download-btn" style="display: none;">Download Bundle</button>
         <span class="auth-header__email" id="auth-user-email">Account</span>
         <button type="button" class="auth-header__btn auth-header__btn--logout" id="auth-logout-btn">Logout</button>
       </div>
@@ -86,14 +87,12 @@
     <video class="hero-section__video" id="hero-video" src="videos/Hero.mp4" muted loop playsinline autoplay aria-hidden="true"></video>
     <div class="hero-section__overlay is-gradient" id="hero-overlay" aria-hidden="true"></div>
     <div class="hero-section__inner">
-      <p class="hero-section__kicker">Featured</p>
       <h1 class="hero-section__headline">
         <span class="hero-section__headline-line">Puppet 3D</span>
       </h1>
-      <p class="hero-section__subtitle">Making fun modeling in 3D</p>
+      <p class="hero-section__subtitle">Making Fun Design in Sketchup and Blender</p>
       <div class="hero-section__ctas">
-        <a href="#content" class="hero-section__cta hero-section__cta--primary">Ver proyectos</a>
-        <a href="#" class="hero-section__cta hero-section__cta--secondary">Saber más</a>
+        <a href="#content" class="hero-section__cta hero-section__cta--primary">Go to Extensions</a>
       </div>
     </div>
   </section>
@@ -108,11 +107,11 @@
 
   <main class="page" id="content">
     <section class="grid">
-      <article class="card c1" data-tags="ux" data-product-id="product-1">
+      <article class="card c1" data-tags="ux" data-product-id="auto-quad">
         <div class="card-inner">
           <div class="card-face card-front">
             <span class="card-tag">UX</span>
-            <p>1 · Diseño UI + animaciones suaves</p>
+            <p class="card-title">Auto Quad</p>
           </div>
           <div class="card-face card-back">
             <div class="media">
@@ -120,18 +119,19 @@
             </div>
             <div class="card-back-content">
               <span class="card-tag">UX</span>
-              <p>1 · Stack: HTML, CSS, JS. Enfoque en conversión y performance.</p>
+              <p class="card-title">Auto Quad</p>
+              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
               <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
             </div>
           </div>
         </div>
       </article>
 
-      <article class="card c2" data-tags="dev" data-product-id="product-2">
+      <article class="card c2" data-tags="dev" data-product-id="easy-material-creator">
         <div class="card-inner">
           <div class="card-face card-front">
             <span class="card-tag">Dev</span>
-            <p>2 · Analítica en tiempo real</p>
+            <p class="card-title">Easy Material Creator</p>
           </div>
           <div class="card-face card-back">
             <div class="media">
@@ -139,18 +139,19 @@
             </div>
             <div class="card-back-content">
               <span class="card-tag">Dev</span>
-              <p>2 · Componentes reutilizables y gráficos responsivos.</p>
+              <p class="card-title">Easy Material Creator</p>
+              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
               <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
             </div>
           </div>
         </div>
       </article>
 
-      <article class="card c3" data-tags="ux" data-product-id="product-3">
+      <article class="card c3" data-tags="ux" data-product-id="easy-selection">
         <div class="card-inner">
           <div class="card-face card-front">
             <span class="card-tag">UX</span>
-            <p>3 · Checkout optimizado</p>
+            <p class="card-title">Easy Selection</p>
           </div>
           <div class="card-face card-back">
             <div class="media">
@@ -158,18 +159,19 @@
             </div>
             <div class="card-back-content">
               <span class="card-tag">UX</span>
-              <p>3 · Mejora de UX y tasas de conversión.</p>
+              <p class="card-title">Easy Selection</p>
+              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
               <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
             </div>
           </div>
         </div>
       </article>
 
-      <article class="card c4" data-tags="dev" data-product-id="product-4">
+      <article class="card c4" data-tags="dev" data-product-id="fun-align-view">
         <div class="card-inner">
           <div class="card-face card-front">
             <span class="card-tag">Dev</span>
-            <p>4 · Interacciones micro-animadas</p>
+            <p class="card-title">Fun Align View</p>
           </div>
           <div class="card-face card-back">
             <div class="media">
@@ -177,18 +179,19 @@
             </div>
             <div class="card-back-content">
               <span class="card-tag">Dev</span>
-              <p>4 · Prototipado rápido y pruebas con usuarios.</p>
+              <p class="card-title">Fun Align View</p>
+              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
               <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
             </div>
           </div>
         </div>
       </article>
 
-      <article class="card c5" data-tags="ux" data-product-id="product-5">
+      <article class="card c5" data-tags="ux" data-product-id="fun-extrude">
         <div class="card-inner">
           <div class="card-face card-front">
             <span class="card-tag">UX</span>
-            <p>5 · Wireframes y prototipos rápidos</p>
+            <p class="card-title">Fun Extrude</p>
           </div>
           <div class="card-face card-back">
             <div class="media">
@@ -196,18 +199,19 @@
             </div>
             <div class="card-back-content">
               <span class="card-tag">UX</span>
-              <p>5 · Iteración con feedback y pruebas A/B.</p>
+              <p class="card-title">Fun Extrude</p>
+              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
               <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
             </div>
           </div>
         </div>
       </article>
 
-      <article class="card c1" data-tags="dev">
+      <article class="card c1 card-special" data-tags="dev" data-product-id="link-blender">
         <div class="card-inner">
           <div class="card-face card-front">
             <span class="card-tag">Dev</span>
-            <p>6 · Automatización y scripts internos</p>
+            <p class="card-title">Link Blender</p>
           </div>
           <div class="card-face card-back">
             <div class="media">
@@ -215,18 +219,19 @@
             </div>
             <div class="card-back-content">
               <span class="card-tag">Dev</span>
-              <p>6 · Herramientas para acelerar el flujo de trabajo.</p>
+              <p class="card-title">Link Blender</p>
+              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
               <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
             </div>
           </div>
         </div>
       </article>
 
-      <article class="card c2" data-tags="ux">
+      <article class="card c2" data-tags="ux" data-product-id="link-camera-blender">
         <div class="card-inner">
           <div class="card-face card-front">
             <span class="card-tag">UX</span>
-            <p>7 · Research y entrevistas a usuarios</p>
+            <p class="card-title">Link Camera Blender</p>
           </div>
           <div class="card-face card-back">
             <div class="media">
@@ -234,18 +239,19 @@
             </div>
             <div class="card-back-content">
               <span class="card-tag">UX</span>
-              <p>7 · Hallazgos clave y recomendaciones.</p>
+              <p class="card-title">Link Camera Blender</p>
+              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
               <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
             </div>
           </div>
         </div>
       </article>
 
-      <article class="card c3" data-tags="dev">
+      <article class="card c3" data-tags="dev" data-product-id="pushpull-pro">
         <div class="card-inner">
           <div class="card-face card-front">
             <span class="card-tag">Dev</span>
-            <p>8 · Integraciones con APIs externas</p>
+            <p class="card-title">PushPull Pro</p>
           </div>
           <div class="card-face card-back">
             <div class="media">
@@ -253,18 +259,19 @@
             </div>
             <div class="card-back-content">
               <span class="card-tag">Dev</span>
-              <p>8 · Conectores y sincronización de datos.</p>
+              <p class="card-title">PushPull Pro</p>
+              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
               <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
             </div>
           </div>
         </div>
       </article>
 
-      <article class="card c4" data-tags="ux">
+      <article class="card c4" data-tags="ux" data-product-id="the-faster-vpn">
         <div class="card-inner">
           <div class="card-face card-front">
             <span class="card-tag">UX</span>
-            <p>9 · Accesibilidad y mejoras de contraste</p>
+            <p class="card-title">The faster VPN</p>
           </div>
           <div class="card-face card-back">
             <div class="media">
@@ -272,7 +279,8 @@
             </div>
             <div class="card-back-content">
               <span class="card-tag">UX</span>
-              <p>9 · Auditoría y ajustes de accesibilidad.</p>
+              <p class="card-title">The faster VPN</p>
+              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
               <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
             </div>
           </div>
@@ -281,8 +289,13 @@
     </section>
   </main>
 
-  <aside class="hero-overlay-ui" aria-label="Overlay del Hero (video)">
-    <h3 class="hero-overlay-ui__title">Hero overlay</h3>
+  <aside class="collapsible-ui is-collapsed hero-overlay-ui" aria-label="Overlay del Hero (video)">
+    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="false">
+      <span class="collapsible-ui__title">Hero overlay</span>
+      <span class="collapsible-ui__toggle" aria-hidden="true">▼</span>
+    </div>
+    <div class="collapsible-ui__body">
+    <h3 class="hero-overlay-ui__title" style="margin-top: 0;">Hero overlay</h3>
     <label class="hero-overlay-ui__row">
       <span>Opacidad video</span>
       <input type="range" id="hero-video-opacity" min="0" max="100" value="100" />
@@ -372,11 +385,107 @@
         <input type="color" id="hero-cta-primary-color" value="#ffffff" />
       </label>
     </div>
+    </div>
   </aside>
 
   <div class="right-ui-stack">
-  <aside class="collapsible-ui hero-text-position-ui" aria-label="Posición del texto del hero">
-    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="true">
+  <aside class="collapsible-ui is-collapsed hero-text-typography-ui" aria-label="Tipografía del hero">
+    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="false">
+      <span class="collapsible-ui__title">Hero Typography</span>
+      <span class="collapsible-ui__toggle" aria-hidden="true">▼</span>
+    </div>
+    <div class="collapsible-ui__body">
+    <label class="hero-text-position-ui__row">
+      <span>Headline color</span>
+      <input type="color" id="hero-headline-color" value="#242424" />
+    </label>
+    <label class="hero-text-position-ui__row">
+      <span>Headline font</span>
+      <select id="hero-headline-font">
+        <option value="Sebino, 'Segoe UI', Arial, sans-serif" selected>Sebino</option>
+        <option value="Moga, 'Segoe UI', Arial, sans-serif">Moga</option>
+        <option value="Nourd, 'Segoe UI', Arial, sans-serif">Nourd</option>
+        <option value="'Segoe UI', Arial, sans-serif">Segoe UI</option>
+        <option value="Arial, sans-serif">Arial</option>
+        <option value="'Trebuchet MS', Arial, sans-serif">Trebuchet MS</option>
+      </select>
+    </label>
+    <label class="hero-text-position-ui__row">
+      <span>Headline weight</span>
+      <select id="hero-headline-weight">
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="300">300</option>
+        <option value="400">400</option>
+        <option value="500">500</option>
+        <option value="600">600</option>
+        <option value="700">700</option>
+        <option value="800">800</option>
+        <option value="900" selected>900</option>
+      </select>
+    </label>
+    <label class="hero-text-position-ui__row">
+      <span>Headline size min (rem)</span>
+      <input type="number" id="hero-headline-size-min" value="4.2" step="0.1" />
+    </label>
+    <label class="hero-text-position-ui__row">
+      <span>Headline size max (rem)</span>
+      <input type="number" id="hero-headline-size-max" value="4.2" step="0.1" />
+    </label>
+    <label class="hero-text-position-ui__row">
+      <span>Subtitle color</span>
+      <input type="color" id="hero-subtitle-color" value="#ffffff" />
+    </label>
+    <label class="hero-text-position-ui__row">
+      <span>Subtitle font</span>
+      <select id="hero-subtitle-font">
+        <option value="Sebino, 'Segoe UI', Arial, sans-serif" selected>Sebino</option>
+        <option value="Moga, 'Segoe UI', Arial, sans-serif">Moga</option>
+        <option value="Nourd, 'Segoe UI', Arial, sans-serif">Nourd</option>
+        <option value="'Segoe UI', Arial, sans-serif">Segoe UI</option>
+        <option value="Arial, sans-serif">Arial</option>
+        <option value="'Trebuchet MS', Arial, sans-serif">Trebuchet MS</option>
+      </select>
+    </label>
+    <label class="hero-text-position-ui__row">
+      <span>Subtitle weight</span>
+      <select id="hero-subtitle-weight">
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="300">300</option>
+        <option value="400" selected>400</option>
+        <option value="500">500</option>
+        <option value="600">600</option>
+        <option value="700">700</option>
+        <option value="800">800</option>
+        <option value="900">900</option>
+      </select>
+    </label>
+    <label class="hero-text-position-ui__row">
+      <span>Subtitle size min (rem)</span>
+      <input type="number" id="hero-subtitle-size-min" value="1.1" step="0.1" />
+    </label>
+    <label class="hero-text-position-ui__row">
+      <span>Subtitle size max (rem)</span>
+      <input type="number" id="hero-subtitle-size-max" value="1.1" step="0.1" />
+    </label>
+    <label class="hero-text-position-ui__row">
+      <span>Gap Headline → Subtitle (px)</span>
+      <input type="number" id="hero-gap-headline-subtitle" value="15" />
+    </label>
+    <label class="hero-text-position-ui__row">
+      <span>Offset X Headline/Subtitle (px)</span>
+      <input type="number" id="hero-text-offset-x-split" value="0" />
+    </label>
+    <label class="hero-text-position-ui__row">
+      <span>Offset X (juntos) (px)</span>
+      <input type="number" id="hero-text-offset-x" value="0" />
+    </label>
+    </div>
+  </aside>
+
+  <aside class="collapsible-ui is-collapsed hero-text-position-ui" aria-label="Posición del texto del hero">
+    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="false">
       <span class="collapsible-ui__title">Posición texto</span>
       <span class="collapsible-ui__toggle" aria-hidden="true">▼</span>
     </div>
@@ -411,13 +520,13 @@
     </label>
     <label class="hero-text-position-ui__row">
       <span>Desplazar Y (px)</span>
-      <input type="number" id="hero-text-offset-y" value="160" />
+      <input type="number" id="hero-text-offset-y" value="250" />
     </label>
     </div>
   </aside>
 
-  <aside class="collapsible-ui trigger-scroll-ui" aria-label="Disparador scroll automático">
-    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="true">
+  <aside class="collapsible-ui is-collapsed trigger-scroll-ui" aria-label="Disparador scroll automático">
+    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="false">
       <span class="collapsible-ui__title">Disparador (scroll automático)</span>
       <span class="collapsible-ui__toggle" aria-hidden="true">▼</span>
     </div>
@@ -449,8 +558,8 @@
     </div>
   </aside>
 
-  <aside class="collapsible-ui scroll-range-ui" aria-label="Rango scroll animación">
-    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="true">
+  <aside class="collapsible-ui is-collapsed scroll-range-ui" aria-label="Rango scroll animación">
+    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="false">
       <span class="collapsible-ui__title">Rango scroll (animación)</span>
       <span class="collapsible-ui__toggle" aria-hidden="true">▼</span>
     </div>
@@ -478,75 +587,20 @@
     </div>
   </aside>
 
-  <aside class="collapsible-ui keyframes-video-ui" aria-label="Keyframes falloff video">
-    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="true">
-      <span class="collapsible-ui__title">Keyframes video</span>
+  </div>
+
+  <div class="left-bottom-ui-stack">
+  <aside class="collapsible-ui is-collapsed muppet-ui" aria-label="Ajustar espaciado de galería">
+    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="false">
+      <span class="collapsible-ui__title">Gallery Spacing</span>
       <span class="collapsible-ui__toggle" aria-hidden="true">▼</span>
     </div>
     <div class="collapsible-ui__body">
-    <div class="keyframes-video-ui__keyframe" data-kf-index="1">
-      <span class="keyframes-video-ui__label">Keyframe 1</span>
-      <label class="keyframes-video-ui__row">
-        <span>Scroll %</span>
-        <input type="number" id="kf1-scroll" value="0" min="0" max="100" />
-      </label>
-      <label class="keyframes-video-ui__row">
-        <span>Inicio %</span>
-        <input type="number" id="kf1-inicio" value="0" min="0" max="100" />
-      </label>
-      <label class="keyframes-video-ui__row">
-        <span>Fin %</span>
-        <input type="number" id="kf1-fin" value="20" min="0" max="100" />
-      </label>
-      <div class="keyframes-video-ui__btns">
-        <button type="button" class="keyframes-video-ui__btn" data-kf-scroll="kf1-scroll">Ir a scroll</button>
-        <button type="button" class="keyframes-video-ui__btn keyframes-video-ui__btn--danger" data-kf-delete="1">Borrar</button>
-      </div>
-    </div>
-    <div class="keyframes-video-ui__keyframe" data-kf-index="2">
-      <span class="keyframes-video-ui__label">Keyframe 2</span>
-      <label class="keyframes-video-ui__row">
-        <span>Scroll %</span>
-        <input type="number" id="kf2-scroll" value="75" min="0" max="100" />
-      </label>
-      <label class="keyframes-video-ui__row">
-        <span>Inicio %</span>
-        <input type="number" id="kf2-inicio" value="80" min="0" max="100" />
-      </label>
-      <label class="keyframes-video-ui__row">
-        <span>Fin %</span>
-        <input type="number" id="kf2-fin" value="100" min="0" max="100" />
-      </label>
-      <div class="keyframes-video-ui__btns">
-        <button type="button" class="keyframes-video-ui__btn" data-kf-scroll="kf2-scroll">Ir a scroll</button>
-        <button type="button" class="keyframes-video-ui__btn keyframes-video-ui__btn--danger" data-kf-delete="2">Borrar</button>
-      </div>
-    </div>
-    <div class="keyframes-video-ui__keyframe" data-kf-index="3">
-      <span class="keyframes-video-ui__label">Keyframe 3</span>
-      <label class="keyframes-video-ui__row">
-        <span>Scroll %</span>
-        <input type="number" id="kf3-scroll" value="100" min="0" max="100" />
-      </label>
-      <label class="keyframes-video-ui__row">
-        <span>Inicio %</span>
-        <input type="number" id="kf3-inicio" value="100" min="0" max="100" />
-      </label>
-      <label class="keyframes-video-ui__row">
-        <span>Fin %</span>
-        <input type="number" id="kf3-fin" value="100" min="0" max="100" />
-      </label>
-      <div class="keyframes-video-ui__btns">
-        <button type="button" class="keyframes-video-ui__btn" data-kf-scroll="kf3-scroll">Ir a scroll</button>
-        <button type="button" class="keyframes-video-ui__btn keyframes-video-ui__btn--danger" data-kf-delete="3">Borrar</button>
-      </div>
-    </div>
-    </div>
-  </aside>
-  </div>
-
-  <aside class="muppet-ui" aria-label="Ajustar espaciado de galería">
-    <h3 class="muppet-ui__title">Gallery Spacing</h3>
+    <h3 class="muppet-ui__title" style="margin-top: 0;">Gallery Spacing</h3>
+    <label class="muppet-ui__row">
+      <span>Background color</span>
+      <input type="color" id="gallery-bg-color" value="#f0f0f0" />
+    </label>
     <label class="muppet-ui__row">
       <span>Offset Y (px)</span>
       <input type="number" id="gallery-offset-y" value="40" />
@@ -555,10 +609,78 @@
       <span>Gap cards (px)</span>
       <input type="number" id="grid-gap" value="25" min="0" />
     </label>
+    </div>
   </aside>
 
-  <aside class="scroll-ui" aria-label="Diagnóstico de scroll">
-    <h3 class="scroll-ui__title">Scroll Debug</h3>
+  <aside class="collapsible-ui is-collapsed muppet-ui card-text-ui" aria-label="Ajustar tipografia de cards">
+    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="false">
+      <span class="collapsible-ui__title">Card Typography</span>
+      <span class="collapsible-ui__toggle" aria-hidden="true">▼</span>
+    </div>
+    <div class="collapsible-ui__body">
+    <h3 class="muppet-ui__title" style="margin-top: 0;">Card Typography</h3>
+    <label class="muppet-ui__row">
+      <span>Title size (px)</span>
+      <input type="number" id="card-title-size" value="20" min="10" />
+    </label>
+    <label class="muppet-ui__row">
+      <span>Title weight</span>
+      <select id="card-title-weight">
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="300">300</option>
+        <option value="400">400</option>
+        <option value="500">500</option>
+        <option value="600">600</option>
+        <option value="700" selected>700</option>
+        <option value="800">800</option>
+        <option value="900">900</option>
+      </select>
+    </label>
+    <label class="muppet-ui__row">
+      <span>Subtitle size (px)</span>
+      <input type="number" id="card-subtitle-size" value="12" min="10" />
+    </label>
+    <label class="muppet-ui__row">
+      <span>Subtitle weight</span>
+      <select id="card-subtitle-weight">
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="300">300</option>
+        <option value="400" selected>400</option>
+        <option value="500">500</option>
+        <option value="600">600</option>
+        <option value="700">700</option>
+        <option value="800">800</option>
+        <option value="900">900</option>
+      </select>
+    </label>
+    <label class="muppet-ui__row">
+      <span>Card BG color</span>
+      <input type="color" id="card-bg-color" value="#f5b60a" />
+    </label>
+    <label class="muppet-ui__row">
+      <span>Font</span>
+      <select id="card-copy-font">
+        <option value="Sebino, 'Segoe UI', Arial, sans-serif" selected>Sebino</option>
+        <option value="Moga, 'Segoe UI', Arial, sans-serif">Moga</option>
+        <option value="Nourd, 'Segoe UI', Arial, sans-serif">Nourd</option>
+        <option value="'Segoe UI', Arial, sans-serif">Segoe UI</option>
+        <option value="Arial, sans-serif">Arial</option>
+        <option value="'Trebuchet MS', Arial, sans-serif">Trebuchet MS</option>
+      </select>
+    </label>
+    </div>
+  </aside>
+  </div>
+
+  <aside class="collapsible-ui is-collapsed scroll-ui" aria-label="Diagnóstico de scroll">
+    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="false">
+      <span class="collapsible-ui__title">Scroll Debug</span>
+      <span class="collapsible-ui__toggle" aria-hidden="true">▼</span>
+    </div>
+    <div class="collapsible-ui__body">
+    <h3 class="scroll-ui__title" style="margin-top: 0;">Scroll Debug</h3>
     <div class="scroll-ui__row">
       <span>Ancho (px)</span>
       <output id="dbg-viewport-width">0</output>
@@ -619,6 +741,9 @@
   
   <!-- Stripe Checkout Handler -->
   <script src="stripe-checkout.js"></script>
+  
+  <!-- Download Handler -->
+  <script src="download.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -677,13 +802,40 @@
 
     (function muppetControls() {
       const root = document.documentElement;
+      const galleryBgColorInput = document.getElementById("gallery-bg-color");
       const galleryOffsetYInput = document.getElementById("gallery-offset-y");
       const gapInput = document.getElementById("grid-gap");
       function apply() {
+        root.style.setProperty("--gallery-bg-color", galleryBgColorInput.value);
         root.style.setProperty("--gallery-offset-y", (galleryOffsetYInput.value | 0) + "px");
         root.style.setProperty("--grid-gap", (gapInput.value | 0) + "px");
       }
-      [galleryOffsetYInput, gapInput].forEach((el) => {
+      [galleryBgColorInput, galleryOffsetYInput, gapInput].forEach((el) => {
+        el.addEventListener("input", apply);
+        el.addEventListener("change", apply);
+      });
+      apply();
+    })();
+
+    (function cardTypographyControls() {
+      const root = document.documentElement;
+      const titleSizeInput = document.getElementById("card-title-size");
+      const titleWeightInput = document.getElementById("card-title-weight");
+      const subtitleSizeInput = document.getElementById("card-subtitle-size");
+      const subtitleWeightInput = document.getElementById("card-subtitle-weight");
+      const fontInput = document.getElementById("card-copy-font");
+      const cardBgColorInput = document.getElementById("card-bg-color");
+
+      function apply() {
+        root.style.setProperty("--card-title-size", (titleSizeInput.value | 0) + "px");
+        root.style.setProperty("--card-title-weight", titleWeightInput.value);
+        root.style.setProperty("--card-subtitle-size", (subtitleSizeInput.value | 0) + "px");
+        root.style.setProperty("--card-subtitle-weight", subtitleWeightInput.value);
+        root.style.setProperty("--card-copy-font", fontInput.value);
+        root.style.setProperty("--card-bg-flat", cardBgColorInput.value);
+      }
+
+      [titleSizeInput, titleWeightInput, subtitleSizeInput, subtitleWeightInput, fontInput, cardBgColorInput].forEach((el) => {
         el.addEventListener("input", apply);
         el.addEventListener("change", apply);
       });
@@ -812,6 +964,57 @@
       apply();
     })();
 
+    (function heroTypographyControls() {
+      const root = document.documentElement;
+      const headlineColorInput = document.getElementById("hero-headline-color");
+      const headlineFontInput = document.getElementById("hero-headline-font");
+      const headlineWeightInput = document.getElementById("hero-headline-weight");
+      const headlineSizeMinInput = document.getElementById("hero-headline-size-min");
+      const headlineSizeMaxInput = document.getElementById("hero-headline-size-max");
+      const subtitleColorInput = document.getElementById("hero-subtitle-color");
+      const subtitleFontInput = document.getElementById("hero-subtitle-font");
+      const subtitleWeightInput = document.getElementById("hero-subtitle-weight");
+      const subtitleSizeMinInput = document.getElementById("hero-subtitle-size-min");
+      const subtitleSizeMaxInput = document.getElementById("hero-subtitle-size-max");
+      const gapHeadlineSubtitleInput = document.getElementById("hero-gap-headline-subtitle");
+      const offsetXSplitInput = document.getElementById("hero-text-offset-x-split");
+      const offsetXInput = document.getElementById("hero-text-offset-x");
+
+      function apply() {
+        root.style.setProperty("--hero-headline-color", headlineColorInput.value);
+        root.style.setProperty("--hero-headline-font", headlineFontInput.value);
+        root.style.setProperty("--hero-headline-weight", headlineWeightInput.value);
+        root.style.setProperty("--hero-headline-size-min", headlineSizeMinInput.value + "rem");
+        root.style.setProperty("--hero-headline-size-max", headlineSizeMaxInput.value + "rem");
+        root.style.setProperty("--hero-subtitle-color", subtitleColorInput.value);
+        root.style.setProperty("--hero-subtitle-font", subtitleFontInput.value);
+        root.style.setProperty("--hero-subtitle-weight", subtitleWeightInput.value);
+        root.style.setProperty("--hero-subtitle-size-min", subtitleSizeMinInput.value + "rem");
+        root.style.setProperty("--hero-subtitle-size-max", subtitleSizeMaxInput.value + "rem");
+        root.style.setProperty("--hero-gap-headline-subtitle", (gapHeadlineSubtitleInput.value | 0) + "px");
+        const offsetXValue = (offsetXSplitInput.value | 0);
+        root.style.setProperty("--hero-text-offset-x-split", offsetXValue + "px");
+        const offsetXTogether = (offsetXInput.value | 0);
+        root.style.setProperty("--hero-text-offset-x", offsetXTogether + "px");
+        
+        // Update GSAP animation to preserve X offset for subtitle
+        if (typeof gsap !== "undefined") {
+          const subtitle = document.querySelector(".hero-section__subtitle");
+          if (subtitle) {
+            gsap.set(subtitle, { x: offsetXValue + offsetXTogether });
+          }
+        }
+      }
+
+      [headlineColorInput, headlineFontInput, headlineWeightInput, headlineSizeMinInput, headlineSizeMaxInput, subtitleColorInput, subtitleFontInput, subtitleWeightInput, subtitleSizeMinInput, subtitleSizeMaxInput, gapHeadlineSubtitleInput, offsetXSplitInput, offsetXInput].forEach((el) => {
+        if (el) {
+          el.addEventListener("input", apply);
+          el.addEventListener("change", apply);
+        }
+      });
+      apply();
+    })();
+
     (function heroSection() {
       if (typeof gsap === "undefined") return;
       if (typeof ScrollTrigger !== "undefined") gsap.registerPlugin(ScrollTrigger);
@@ -843,7 +1046,15 @@
         }, { once: true });
       }
 
-      const getScrollDistance = () => Math.max(window.innerHeight, 1);
+      const getScrollDistance = () => {
+        const cssViewport = parseFloat(
+          getComputedStyle(document.documentElement).getPropertyValue("--viewport-height")
+        );
+        if (Number.isFinite(cssViewport) && cssViewport > 0) {
+          return Math.max(Math.round(cssViewport), 1);
+        }
+        return Math.max(window.innerHeight, 1);
+      };
       let lastScrollY = Math.round(window.scrollY || 0);
       let lastHeroProgress = Math.min(
         1,
@@ -1053,78 +1264,6 @@
           ? Math.round(content.getBoundingClientRect().top)
           : 0;
 
-        const animateFalloffCheck = document.getElementById("hero-video-falloff-scroll");
-        if (hero && animateFalloffCheck && animateFalloffCheck.checked) {
-          var easingFns = {
-            linear: function (t) { return t; },
-            "ease-in": function (t) { return t * t; },
-            "ease-out": function (t) { return t * (2 - t); },
-            "ease-in-out": function (t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; },
-            "ease-in-cubic": function (t) { return t * t * t; },
-            "ease-out-cubic": function (t) { return 1 - Math.pow(1 - t, 3); },
-            "ease-in-out-cubic": function (t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
-          };
-          var easeSelect = document.getElementById("kf-easing");
-          var easeName = (easeSelect && easeSelect.value) ? easeSelect.value : "linear";
-          var easeFn = easingFns[easeName] || easingFns.linear;
-          var getVal = function (id) { var el = document.getElementById(id); return el && el.value !== "" ? parseFloat(el.value) : 0; };
-          var keyframes = [];
-          [1, 2, 3].forEach(function (idx) {
-            var scrollEl = document.getElementById("kf" + idx + "-scroll");
-            if (scrollEl && document.body.contains(scrollEl)) {
-              keyframes.push({
-                s: getVal("kf" + idx + "-scroll") / 100,
-                i: getVal("kf" + idx + "-inicio"),
-                f: getVal("kf" + idx + "-fin")
-              });
-            }
-          });
-          keyframes.sort(function (a, b) { return a.s - b.s; });
-          var scrollStartPct = getVal("kf-scroll-start") / 100;
-          var scrollEndPct = getVal("kf-scroll-end") / 100;
-          if (scrollEndPct <= scrollStartPct) scrollEndPct = scrollStartPct + 0.01;
-          var animProgress = heroProgress <= scrollStartPct ? 0 : (heroProgress >= scrollEndPct ? 1 : (heroProgress - scrollStartPct) / (scrollEndPct - scrollStartPct));
-          var videoInicio, videoFin;
-          if (keyframes.length === 0) {
-            videoInicio = 0;
-            videoFin = 80;
-          } else if (keyframes.length === 1) {
-            videoInicio = keyframes[0].i;
-            videoFin = keyframes[0].f;
-          } else {
-            if (animProgress <= keyframes[0].s) {
-              videoInicio = keyframes[0].i;
-              videoFin = keyframes[0].f;
-            } else if (animProgress >= keyframes[keyframes.length - 1].s) {
-              videoInicio = keyframes[keyframes.length - 1].i;
-              videoFin = keyframes[keyframes.length - 1].f;
-            } else {
-              var seg = 0;
-              for (var i = 0; i < keyframes.length - 1; i++) {
-                if (animProgress >= keyframes[i].s && animProgress <= keyframes[i + 1].s) { seg = i; break; }
-              }
-              var k0 = keyframes[seg];
-              var k1 = keyframes[seg + 1];
-              var den = k1.s - k0.s;
-              var t = (den > 1e-6) ? Math.max(0, Math.min(1, (animProgress - k0.s) / den)) : 1;
-              var te = easeFn(t);
-              videoInicio = Math.round(k0.i + (k1.i - k0.i) * te);
-              videoFin = Math.round(k0.f + (k1.f - k0.f) * te);
-            }
-          }
-          hero.style.setProperty("--hero-video-falloff-start", videoInicio + "%");
-          hero.style.setProperty("--hero-video-falloff-end", videoFin + "%");
-          window.__updatingVideoFalloffFromScroll = true;
-          var vfStartEl = document.getElementById("hero-video-falloff-start");
-          var vfEndEl = document.getElementById("hero-video-falloff-end");
-          var vfStartOut = document.getElementById("hero-video-falloff-start-out");
-          var vfEndOut = document.getElementById("hero-video-falloff-end-out");
-          if (vfStartEl) vfStartEl.value = videoInicio;
-          if (vfEndEl) vfEndEl.value = videoFin;
-          if (vfStartOut) vfStartOut.textContent = videoInicio + "%";
-          if (vfEndOut) vfEndOut.textContent = videoFin + "%";
-          window.__updatingVideoFalloffFromScroll = false;
-        }
 
         setText(dbgViewportWidth, String(window.innerWidth));
         setText(dbgViewportHeight, String(window.innerHeight));
@@ -1150,8 +1289,8 @@
         )
         .fromTo(
           subtitle,
-          { opacity: 0, y: 16 },
-          { opacity: 1, y: 0, duration: 0.6 },
+          { opacity: 0, y: 16, x: 0 },
+          { opacity: 1, y: 0, x: 0, duration: 0.6 },
           "-=0.3"
         )
         .fromTo(ctas, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5 }, "-=0.4");
@@ -1188,43 +1327,43 @@
       updateScrollDebug();
     })();
 
-    (function keyframesVideoLive() {
-      var ids = ["kf-easing", "kf-scroll-start", "kf-scroll-end", "kf1-scroll", "kf1-inicio", "kf1-fin", "kf2-scroll", "kf2-inicio", "kf2-fin", "kf3-scroll", "kf3-inicio", "kf3-fin"];
-      function triggerFalloffUpdate() {
-        window.dispatchEvent(new Event("scroll"));
-      }
-      ids.forEach(function (id) {
-        var el = document.getElementById(id);
-        if (el) {
-          el.addEventListener("input", triggerFalloffUpdate);
-          el.addEventListener("change", triggerFalloffUpdate);
-        }
-      });
-      var heroEnd = function () { return Math.max(window.innerHeight, 1); };
-      document.querySelectorAll(".keyframes-video-ui__btn[data-kf-scroll]").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          var inputId = btn.getAttribute("data-kf-scroll");
-          var input = inputId ? document.getElementById(inputId) : null;
-          if (!input) return;
-          var pct = parseFloat(input.value);
-          if (Number.isNaN(pct)) return;
-          var target = (Math.max(0, Math.min(100, pct)) / 100) * heroEnd();
-          window.scrollTo({ top: target, behavior: "smooth" });
-        });
-      });
-      document.querySelectorAll(".keyframes-video-ui__btn[data-kf-delete]").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          var index = btn.getAttribute("data-kf-delete");
-          var block = document.querySelector(".keyframes-video-ui__keyframe[data-kf-index=\"" + index + "\"]");
-          if (block && block.parentNode) {
-            block.parentNode.removeChild(block);
-            window.dispatchEvent(new Event("scroll"));
-          }
-        });
-      });
-    })();
 
     const cards = Array.from(document.querySelectorAll(".card"));
+    const refSubtitle = "Rated #1 in speed by AV-Test, an independent institute";
+
+    // Ensure cards have proper structure and classes, but preserve existing titles
+    cards.forEach((card) => {
+      const frontP = card.querySelector(".card-front p");
+      if (frontP) {
+        frontP.classList.add("card-title");
+        frontP.classList.remove("card-subtext");
+        // Don't overwrite existing text content
+      }
+      if (frontP && !frontP.nextElementSibling?.classList.contains("card-subtext")) {
+        const sub = document.createElement("p");
+        sub.className = "card-subtext";
+        sub.textContent = refSubtitle;
+        frontP.insertAdjacentElement("afterend", sub);
+      }
+
+      const backP = card.querySelector(".card-back-content p");
+      if (backP) {
+        backP.classList.add("card-title");
+        backP.classList.remove("card-subtext");
+        // Don't overwrite existing text content
+      }
+      const backBtn = card.querySelector(".card-back-content .buy-btn");
+      if (backP && !card.querySelector(".card-back-content .card-subtext")) {
+        const sub = document.createElement("p");
+        sub.className = "card-subtext";
+        sub.textContent = refSubtitle;
+        if (backBtn) {
+          backBtn.insertAdjacentElement("beforebegin", sub);
+        } else {
+          backP.insertAdjacentElement("afterend", sub);
+        }
+      }
+    });
 
     let expandedCard = null;
 
@@ -1404,17 +1543,7 @@
         slotMap.set(card, slots);
       });
 
-      cards.forEach((card) => {
-        const label = slotMap.get(card).join(", ");
-        card.querySelectorAll(".card-front p").forEach((p) => {
-          const text = p.textContent.replace(/^\d+(,\s*\d+)*\s·\s/, "");
-          p.textContent = `${label} · ${text}`;
-        });
-        card.querySelectorAll(".card-back-content p").forEach((p) => {
-          const text = p.textContent.replace(/^\d+(,\s*\d+)*\s·\s/, "");
-          p.textContent = `${label} · ${text}`;
-        });
-      });
+      // Slot labels are kept internal for layout debug; visible card copy stays clean.
 
       const expanded = document.querySelector(".card.is-expanded");
       if (expanded && renderMissing) {

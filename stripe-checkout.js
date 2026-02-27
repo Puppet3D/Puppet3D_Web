@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const auth = firebase.auth();
 
   // Create Checkout Session
-  async function createCheckoutSession(productId, priceId, event) {
+  async function createCheckoutSession(productId, event) {
     const user = auth.currentUser;
     
     if (!user) {
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Show loading state
       if (buyBtn) {
         buyBtn.disabled = true;
-        buyBtn.textContent = 'Loading...';
+        buyBtn.textContent = 'Redirecting...';
       }
 
       // Create Checkout Session via your backend/API
@@ -53,16 +53,22 @@ document.addEventListener('DOMContentLoaded', () => {
       // - cancel_url: 'http://127.0.0.1:5500/?canceled=true'
       // - metadata: { user_id: user.uid, product_id: productId }
       
-      const response = await fetch('https://puppet3d.app.n8n.cloud/webhook/create-checkout-session', {
+      if (!STRIPE_SUBSCRIPTION_PRICE_ID) {
+        throw new Error('Subscription price is not configured');
+      }
+
+      const response = await fetch(STRIPE_CHECKOUT_WEBHOOK_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          priceId: priceId,
+          priceId: STRIPE_SUBSCRIPTION_PRICE_ID,
           productId: productId,
           userId: user.uid,
           userEmail: user.email,
+          mode: 'subscription',
+          billingModel: 'monthly_all_access',
         }),
       });
 
@@ -128,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Error: ' + result.error.message);
         if (buyBtn) {
           buyBtn.disabled = false;
-          buyBtn.textContent = 'Buy';
+          buyBtn.textContent = 'Subscribe';
         }
       }
     } catch (error) {
@@ -136,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Error: ' + (error.message || 'Failed to create checkout. Please try again.'));
       if (buyBtn) {
         buyBtn.disabled = false;
-        buyBtn.textContent = 'Buy';
+        buyBtn.textContent = 'Subscribe';
       }
     }
   }
@@ -155,16 +161,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const priceId = PRODUCT_TO_PRICE_ID[productId];
-    if (!priceId) {
-      console.error(`No price ID found for product: ${productId}`);
-      alert('Product not configured. Please contact support.');
-      return;
-    }
-
     event.preventDefault();
     event.stopPropagation(); // Prevent card click
-    createCheckoutSession(productId, priceId, event);
+    createCheckoutSession(productId, event);
   });
 
   // Update buy buttons visibility based on auth state and owned products
@@ -188,6 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const buyBtn = card.querySelector('.buy-btn');
       
       if (!buyBtn) return;
+
+      buyBtn.textContent = 'Subscribe';
 
       // Hide buy button if:
       // 1. User is not logged in
