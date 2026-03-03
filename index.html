@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
   <title>PPTest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="settings-hidden">
@@ -84,16 +87,134 @@
   </div>
   
   <section class="hero-section" id="hero-section">
-    <video class="hero-section__video" id="hero-video" src="videos/Hero.mp4" muted loop playsinline autoplay aria-hidden="true"></video>
-    <div class="hero-section__overlay is-gradient" id="hero-overlay" aria-hidden="true"></div>
-    <div class="hero-section__inner">
-      <h1 class="hero-section__headline">
-        <span class="hero-section__headline-line">Puppet 3D</span>
-      </h1>
-      <p class="hero-section__subtitle">Making Fun Design in Sketchup and Blender</p>
-      <div class="hero-section__ctas">
-        <a href="#content" class="hero-section__cta hero-section__cta--primary">Go to Extensions</a>
+    <!-- Header global -->
+    <div class="fs-header">
+      <div>The Creative</div>
+      <div>Process</div>
+    </div>
+
+    <!-- Panel 0: Hero -->
+    <div class="fs-panel fs-panel--active" data-fs="0">
+      <video class="hero-section__video" id="hero-video" src="videos/Hero.mp4" muted loop playsinline autoplay aria-hidden="true"></video>
+      <div class="hero-section__overlay is-gradient" id="hero-overlay" aria-hidden="true"></div>
+      <div class="fs-panel__grid">
+        <div class="fs-panel__left">
+          <div class="fs-panel__track">
+            <div class="fs-panel__label" data-label-index="0">Silence</div>
+            <div class="fs-panel__label" data-label-index="1">Essence</div>
+            <div class="fs-panel__label" data-label-index="2">Rebirth</div>
+            <div class="fs-panel__label" data-label-index="3">Change</div>
+          </div>
+        </div>
+        <div class="fs-panel__center">
+          <div class="hero-section__inner">
+            <h1 class="hero-section__headline">
+              <span class="hero-section__headline-line">Puppet 3D</span>
+            </h1>
+            <p class="hero-section__subtitle">Making Fun Design in Sketchup and Blender</p>
+            <div class="hero-section__ctas">
+              <a href="#content" class="hero-section__cta hero-section__cta--primary" id="cta-go-extensions">Go to Extensions</a>
+            </div>
+          </div>
+        </div>
+        <div class="fs-panel__right">
+          <div class="fs-panel__track">
+            <div class="fs-panel__label" data-label-index="0">Silence</div>
+            <div class="fs-panel__label" data-label-index="1">Essence</div>
+            <div class="fs-panel__label" data-label-index="2">Rebirth</div>
+            <div class="fs-panel__label" data-label-index="3">Change</div>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <!-- Panel 1: Silence / Absence -->
+    <div class="fs-panel" data-fs="1">
+      <div class="fs-panel__bg" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);"></div>
+      <div class="fs-panel__overlay"></div>
+      <div class="fs-panel__grid">
+        <div class="fs-panel__left">
+          <div class="fs-panel__track">
+            <div class="fs-panel__label" data-label-index="0">Silence</div>
+            <div class="fs-panel__label" data-label-index="1">Essence</div>
+            <div class="fs-panel__label" data-label-index="2">Rebirth</div>
+            <div class="fs-panel__label" data-label-index="3">Change</div>
+          </div>
+        </div>
+        <div class="fs-panel__center">
+          <h2 class="fs-panel__title">Absence</h2>
+        </div>
+        <div class="fs-panel__right">
+          <div class="fs-panel__track">
+            <div class="fs-panel__label" data-label-index="0">Silence</div>
+            <div class="fs-panel__label" data-label-index="1">Essence</div>
+            <div class="fs-panel__label" data-label-index="2">Rebirth</div>
+            <div class="fs-panel__label" data-label-index="3">Change</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2: Essence / Stillness -->
+    <div class="fs-panel" data-fs="2">
+      <div class="fs-panel__bg" style="background: linear-gradient(135deg, #0f3460 0%, #533483 50%, #e94560 100%);"></div>
+      <div class="fs-panel__overlay"></div>
+      <div class="fs-panel__grid">
+        <div class="fs-panel__left">
+          <div class="fs-panel__track">
+            <div class="fs-panel__label" data-label-index="0">Silence</div>
+            <div class="fs-panel__label" data-label-index="1">Essence</div>
+            <div class="fs-panel__label" data-label-index="2">Rebirth</div>
+            <div class="fs-panel__label" data-label-index="3">Change</div>
+          </div>
+        </div>
+        <div class="fs-panel__center">
+          <h2 class="fs-panel__title">Stillness</h2>
+        </div>
+        <div class="fs-panel__right">
+          <div class="fs-panel__track">
+            <div class="fs-panel__label" data-label-index="0">Silence</div>
+            <div class="fs-panel__label" data-label-index="1">Essence</div>
+            <div class="fs-panel__label" data-label-index="2">Rebirth</div>
+            <div class="fs-panel__label" data-label-index="3">Change</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3: Rebirth / Growth -->
+    <div class="fs-panel" data-fs="3">
+      <div class="fs-panel__bg" style="background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);"></div>
+      <div class="fs-panel__overlay"></div>
+      <div class="fs-panel__grid">
+        <div class="fs-panel__left">
+          <div class="fs-panel__track">
+            <div class="fs-panel__label" data-label-index="0">Silence</div>
+            <div class="fs-panel__label" data-label-index="1">Essence</div>
+            <div class="fs-panel__label" data-label-index="2">Rebirth</div>
+            <div class="fs-panel__label" data-label-index="3">Change</div>
+          </div>
+        </div>
+        <div class="fs-panel__center">
+          <h2 class="fs-panel__title">Growth</h2>
+        </div>
+        <div class="fs-panel__right">
+          <div class="fs-panel__track">
+            <div class="fs-panel__label" data-label-index="0">Silence</div>
+            <div class="fs-panel__label" data-label-index="1">Essence</div>
+            <div class="fs-panel__label" data-label-index="2">Rebirth</div>
+            <div class="fs-panel__label" data-label-index="3">Change</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress dots -->
+    <div class="fs-dots" id="fs-dots">
+      <button class="fs-dot fs-dot--active" data-fs-dot="0" aria-label="Section 1"></button>
+      <button class="fs-dot" data-fs-dot="1" aria-label="Section 2"></button>
+      <button class="fs-dot" data-fs-dot="2" aria-label="Section 3"></button>
+      <button class="fs-dot" data-fs-dot="3" aria-label="Section 4"></button>
     </div>
   </section>
 
@@ -107,110 +228,13 @@
 
   <main class="page" id="content">
     <section class="grid">
-      <article class="card c1" data-tags="ux" data-product-id="auto-quad">
+      <article class="card c1 card-special" data-tags="blender" data-product-id="link-blender">
         <div class="card-inner">
           <div class="card-face card-front">
-            <span class="card-tag">UX</span>
-            <p class="card-title">Auto Quad</p>
-          </div>
-          <div class="card-face card-back">
-            <div class="media">
-              <video class="card-video" src="videos/Easy Assign Material.mp4" muted loop playsinline></video>
+            <span class="card-tag" data-filter="blender">SketchUp and Blender</span>
+            <div class="card-icon-wrapper">
+              <img src="icons/link-blender.svg" alt="Link Blender" class="card-icon" />
             </div>
-            <div class="card-back-content">
-              <span class="card-tag">UX</span>
-              <p class="card-title">Auto Quad</p>
-              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
-              <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="card c2" data-tags="dev" data-product-id="easy-material-creator">
-        <div class="card-inner">
-          <div class="card-face card-front">
-            <span class="card-tag">Dev</span>
-            <p class="card-title">Easy Material Creator</p>
-          </div>
-          <div class="card-face card-back">
-            <div class="media">
-              <video class="card-video" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" muted loop playsinline></video>
-            </div>
-            <div class="card-back-content">
-              <span class="card-tag">Dev</span>
-              <p class="card-title">Easy Material Creator</p>
-              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
-              <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="card c3" data-tags="ux" data-product-id="easy-selection">
-        <div class="card-inner">
-          <div class="card-face card-front">
-            <span class="card-tag">UX</span>
-            <p class="card-title">Easy Selection</p>
-          </div>
-          <div class="card-face card-back">
-            <div class="media">
-              <video class="card-video" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" muted loop playsinline></video>
-            </div>
-            <div class="card-back-content">
-              <span class="card-tag">UX</span>
-              <p class="card-title">Easy Selection</p>
-              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
-              <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="card c4" data-tags="dev" data-product-id="fun-align-view">
-        <div class="card-inner">
-          <div class="card-face card-front">
-            <span class="card-tag">Dev</span>
-            <p class="card-title">Fun Align View</p>
-          </div>
-          <div class="card-face card-back">
-            <div class="media">
-              <video class="card-video" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" muted loop playsinline></video>
-            </div>
-            <div class="card-back-content">
-              <span class="card-tag">Dev</span>
-              <p class="card-title">Fun Align View</p>
-              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
-              <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="card c5" data-tags="ux" data-product-id="fun-extrude">
-        <div class="card-inner">
-          <div class="card-face card-front">
-            <span class="card-tag">UX</span>
-            <p class="card-title">Fun Extrude</p>
-          </div>
-          <div class="card-face card-back">
-            <div class="media">
-              <video class="card-video" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" muted loop playsinline></video>
-            </div>
-            <div class="card-back-content">
-              <span class="card-tag">UX</span>
-              <p class="card-title">Fun Extrude</p>
-              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
-              <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="card c1 card-special" data-tags="dev" data-product-id="link-blender">
-        <div class="card-inner">
-          <div class="card-face card-front">
-            <span class="card-tag">Dev</span>
             <p class="card-title">Link Blender</p>
           </div>
           <div class="card-face card-back">
@@ -218,19 +242,68 @@
               <video class="card-video" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" muted loop playsinline></video>
             </div>
             <div class="card-back-content">
-              <span class="card-tag">Dev</span>
+              <span class="card-tag" data-filter="blender">SketchUp and Blender</span>
               <p class="card-title">Link Blender</p>
-              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
+              <p class="card-subtext">Copy and paste selected geometry from SketchUp to Blender.</p>
               <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
             </div>
           </div>
         </div>
       </article>
 
-      <article class="card c2" data-tags="ux" data-product-id="link-camera-blender">
+      <article class="card c2" data-tags="sketchup" data-product-id="fun-extrude">
         <div class="card-inner">
           <div class="card-face card-front">
-            <span class="card-tag">UX</span>
+            <span class="card-tag" data-filter="sketchup">SketchUp</span>
+            <div class="card-icon-wrapper">
+              <img src="icons/fun-extrude.svg" alt="Fun Extrude" class="card-icon" />
+            </div>
+            <p class="card-title">Fun Extrude</p>
+          </div>
+          <div class="card-face card-back">
+            <div class="media">
+              <video class="card-video" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" muted loop playsinline></video>
+            </div>
+            <div class="card-back-content">
+              <span class="card-tag" data-filter="sketchup">SketchUp</span>
+              <p class="card-title">Fun Extrude</p>
+              <p class="card-subtext">Directional extrusion with keyboard shortcuts for six directions: Right, Left, Up, etc.</p>
+              <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card c3" data-tags="sketchup" data-product-id="fun-align-view">
+        <div class="card-inner">
+          <div class="card-face card-front">
+            <span class="card-tag" data-filter="sketchup">SketchUp</span>
+            <div class="card-icon-wrapper">
+              <img src="icons/fun-align-view.svg" alt="Fun Align View" class="card-icon" />
+            </div>
+            <p class="card-title">Fun Align View</p>
+          </div>
+          <div class="card-face card-back">
+            <div class="media">
+              <video class="card-video" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" muted loop playsinline></video>
+            </div>
+            <div class="card-back-content">
+              <span class="card-tag" data-filter="sketchup">SketchUp</span>
+              <p class="card-title">Fun Align View</p>
+              <p class="card-subtext">Aligns the view to the nearest orthographic view with animated transition.</p>
+              <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card c5" data-tags="blender" data-product-id="link-camera-blender">
+        <div class="card-inner">
+          <div class="card-face card-front">
+            <span class="card-tag" data-filter="blender">SketchUp and Blender</span>
+            <div class="card-icon-wrapper">
+              <img src="icons/link-camera-blender.svg" alt="Link Camera Blender" class="card-icon" />
+            </div>
             <p class="card-title">Link Camera Blender</p>
           </div>
           <div class="card-face card-back">
@@ -238,49 +311,122 @@
               <video class="card-video" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" muted loop playsinline></video>
             </div>
             <div class="card-back-content">
-              <span class="card-tag">UX</span>
+              <span class="card-tag" data-filter="blender">SketchUp and Blender</span>
               <p class="card-title">Link Camera Blender</p>
-              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
+              <p class="card-subtext">Copy and paste the current camera configuration from SketchUp to Blender.</p>
               <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
             </div>
           </div>
         </div>
       </article>
 
-      <article class="card c3" data-tags="dev" data-product-id="pushpull-pro">
+      <article class="card c1" data-tags="sketchup" data-product-id="auto-quad">
         <div class="card-inner">
           <div class="card-face card-front">
-            <span class="card-tag">Dev</span>
-            <p class="card-title">PushPull Pro</p>
+            <span class="card-tag" data-filter="sketchup">SketchUp</span>
+            <div class="card-icon-wrapper">
+              <img src="icons/auto-quad.svg" alt="Auto Quad" class="card-icon" />
+            </div>
+            <p class="card-title">Auto Quad</p>
           </div>
           <div class="card-face card-back">
             <div class="media">
-              <video class="card-video" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" muted loop playsinline></video>
+              <video class="card-video" src="videos/Easy Assign Material.mp4" muted loop playsinline></video>
             </div>
             <div class="card-back-content">
-              <span class="card-tag">Dev</span>
-              <p class="card-title">PushPull Pro</p>
-              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
+              <span class="card-tag" data-filter="sketchup">SketchUp</span>
+              <p class="card-title">Auto Quad</p>
+              <p class="card-subtext">Detects faces that need additional edges to become quadrilaterals (quads)</p>
               <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
             </div>
           </div>
         </div>
       </article>
 
-      <article class="card c4" data-tags="ux" data-product-id="the-faster-vpn">
+      <article class="card c2" data-tags="sketchup" data-product-id="easy-material-creator">
         <div class="card-inner">
           <div class="card-face card-front">
-            <span class="card-tag">UX</span>
-            <p class="card-title">The faster VPN</p>
+            <span class="card-tag" data-filter="sketchup">SketchUp</span>
+            <div class="card-icon-wrapper">
+              <img src="icons/easy-material-creator.svg" alt="Easy Material Creator" class="card-icon" />
+            </div>
+            <p class="card-title">Easy Material Creator</p>
           </div>
           <div class="card-face card-back">
             <div class="media">
               <video class="card-video" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" muted loop playsinline></video>
             </div>
             <div class="card-back-content">
-              <span class="card-tag">UX</span>
-              <p class="card-title">The faster VPN</p>
-              <p class="card-subtext">Rated #1 in speed by AV-Test, an independent institute</p>
+              <span class="card-tag" data-filter="sketchup">SketchUp</span>
+              <p class="card-title">Easy Material Creator</p>
+              <p class="card-subtext">Creates random materials with pastel colors for the current selection.</p>
+              <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card c3" data-tags="sketchup" data-product-id="easy-selection">
+        <div class="card-inner">
+          <div class="card-face card-front">
+            <span class="card-tag" data-filter="sketchup">SketchUp</span>
+            <div class="card-icon-wrapper">
+              <img src="icons/easy-selection.svg" alt="Easy Selection" class="card-icon" />
+            </div>
+            <p class="card-title">Easy Selection</p>
+          </div>
+          <div class="card-face card-back">
+            <div class="media">
+              <video class="card-video" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" muted loop playsinline></video>
+            </div>
+            <div class="card-back-content">
+              <span class="card-tag" data-filter="sketchup">SketchUp</span>
+              <p class="card-title">Easy Selection</p>
+              <p class="card-subtext">Enhanced selection tool that allows dragging to select edges.</p>
+              <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card c4" data-tags="sketchup" data-product-id="bridge-and-extrude">
+        <div class="card-inner">
+          <div class="card-face card-front">
+            <span class="card-tag" data-filter="sketchup">SketchUp</span>
+            <div class="card-icon-wrapper">
+              <img src="icons/bridge-and-extrude.svg" alt="Bridge And Extrude" class="card-icon" />
+            </div>
+            <p class="card-title">Bridge And Extrude</p>
+          </div>
+          <div class="card-face card-back">
+            <div class="media">
+              <video class="card-video" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" muted loop playsinline></video>
+            </div>
+            <div class="card-back-content">
+              <span class="card-tag" data-filter="sketchup">SketchUp</span>
+              <p class="card-title">Bridge And Extrude</p>
+              <p class="card-subtext">Four tools, one button. Multi-Extrusion, Bridge Edges, Make Faces, and Push/Pull.</p>
+              <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card c5" data-tags="sketchup" data-product-id="the-faster-vpn">
+        <div class="card-inner">
+          <div class="card-face card-front no-icon">
+            <span class="card-tag" data-filter="sketchup">SketchUp</span>
+            <p class="card-title">Request your script</p>
+            <p class="card-subtext">New scripts will be implemented based on community votes.</p>
+          </div>
+          <div class="card-face card-back">
+            <div class="media">
+              <video class="card-video" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" muted loop playsinline></video>
+            </div>
+            <div class="card-back-content">
+              <span class="card-tag" data-filter="sketchup">SketchUp</span>
+              <p class="card-title">Request your script</p>
+              <p class="card-subtext">New scripts will be implemented based on community votes.</p>
               <button type="button" class="cta buy-btn" style="display: none;">Buy</button>
             </div>
           </div>
@@ -599,7 +745,7 @@
     <h3 class="muppet-ui__title" style="margin-top: 0;">Gallery Spacing</h3>
     <label class="muppet-ui__row">
       <span>Background color</span>
-      <input type="color" id="gallery-bg-color" value="#f0f0f0" />
+      <input type="color" id="gallery-bg-color" value="#F5B60A" />
     </label>
     <label class="muppet-ui__row">
       <span>Offset Y (px)</span>
@@ -621,7 +767,7 @@
     <h3 class="muppet-ui__title" style="margin-top: 0;">Card Typography</h3>
     <label class="muppet-ui__row">
       <span>Title size (px)</span>
-      <input type="number" id="card-title-size" value="20" min="10" />
+      <input type="number" id="card-title-size" value="25" min="10" />
     </label>
     <label class="muppet-ui__row">
       <span>Title weight</span>
@@ -635,6 +781,19 @@
         <option value="700" selected>700</option>
         <option value="800">800</option>
         <option value="900">900</option>
+      </select>
+    </label>
+    <label class="muppet-ui__row">
+      <span>Title font</span>
+      <select id="card-title-font">
+        <option value="Lato">Lato</option>
+        <option value="Sebino">Sebino</option>
+        <option value="Moga">Moga</option>
+        <option value="Nourd" selected>Nourd</option>
+        <option value="Arial">Arial</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Courier New">Courier New</option>
       </select>
     </label>
     <label class="muppet-ui__row">
@@ -669,6 +828,31 @@
         <option value="Arial, sans-serif">Arial</option>
         <option value="'Trebuchet MS', Arial, sans-serif">Trebuchet MS</option>
       </select>
+    </label>
+    </div>
+  </aside>
+
+  <aside class="collapsible-ui is-collapsed muppet-ui card-icon-ui" aria-label="Ajustar iconos de cards">
+    <div class="collapsible-ui__header" tabindex="0" role="button" aria-expanded="false">
+      <span class="collapsible-ui__title">Card Icons</span>
+      <span class="collapsible-ui__toggle" aria-hidden="true">▼</span>
+    </div>
+    <div class="collapsible-ui__body">
+    <h3 class="muppet-ui__title" style="margin-top: 0;">Card Icons</h3>
+    <label class="muppet-ui__row">
+      <span>Icon scale (%)</span>
+      <input type="range" id="card-icon-scale-range" min="20" max="2000" value="105" />
+      <input type="number" id="card-icon-scale" min="20" max="2000" value="105" style="width: 80px;" />
+    </label>
+    <label class="muppet-ui__row">
+      <span>Icon padding Y (px)</span>
+      <input type="range" id="card-icon-padding-y-range" min="-200" max="200" value="50" />
+      <input type="number" id="card-icon-padding-y" min="-200" max="200" value="50" style="width: 80px;" />
+    </label>
+    <label class="muppet-ui__row">
+      <span>Tag gap Y (px)</span>
+      <input type="range" id="card-tag-gap-y-range" min="0" max="100" value="20" />
+      <input type="number" id="card-tag-gap-y" min="0" max="100" value="20" style="width: 80px;" />
     </label>
     </div>
   </aside>
@@ -821,6 +1005,7 @@
       const root = document.documentElement;
       const titleSizeInput = document.getElementById("card-title-size");
       const titleWeightInput = document.getElementById("card-title-weight");
+      const titleFontInput = document.getElementById("card-title-font");
       const subtitleSizeInput = document.getElementById("card-subtitle-size");
       const subtitleWeightInput = document.getElementById("card-subtitle-weight");
       const fontInput = document.getElementById("card-copy-font");
@@ -829,17 +1014,86 @@
       function apply() {
         root.style.setProperty("--card-title-size", (titleSizeInput.value | 0) + "px");
         root.style.setProperty("--card-title-weight", titleWeightInput.value);
+        root.style.setProperty("--card-title-font", titleFontInput.value);
         root.style.setProperty("--card-subtitle-size", (subtitleSizeInput.value | 0) + "px");
         root.style.setProperty("--card-subtitle-weight", subtitleWeightInput.value);
         root.style.setProperty("--card-copy-font", fontInput.value);
         root.style.setProperty("--card-bg-flat", cardBgColorInput.value);
       }
 
-      [titleSizeInput, titleWeightInput, subtitleSizeInput, subtitleWeightInput, fontInput, cardBgColorInput].forEach((el) => {
+      [titleSizeInput, titleWeightInput, titleFontInput, subtitleSizeInput, subtitleWeightInput, fontInput, cardBgColorInput].forEach((el) => {
         el.addEventListener("input", apply);
         el.addEventListener("change", apply);
       });
       apply();
+    })();
+
+    (function cardIconControls() {
+      const root = document.documentElement;
+      const iconScaleRange = document.getElementById("card-icon-scale-range");
+      const iconScaleInput = document.getElementById("card-icon-scale");
+      const iconPaddingYRange = document.getElementById("card-icon-padding-y-range");
+      const iconPaddingYInput = document.getElementById("card-icon-padding-y");
+      const tagGapYRange = document.getElementById("card-tag-gap-y-range");
+      const tagGapYInput = document.getElementById("card-tag-gap-y");
+
+      function applyScale() {
+        const scale = Math.max(20, Math.min(2000, parseInt(iconScaleInput.value) || 105));
+        root.style.setProperty("--card-icon-scale", scale);
+        if (iconScaleRange) iconScaleRange.value = scale;
+        if (iconScaleInput) iconScaleInput.value = scale;
+      }
+
+      function applyPaddingY() {
+        const paddingY = Math.max(-200, Math.min(200, parseInt(iconPaddingYInput.value) || 50));
+        root.style.setProperty("--card-icon-padding-y", paddingY + "px");
+        if (iconPaddingYRange) iconPaddingYRange.value = paddingY;
+        if (iconPaddingYInput) iconPaddingYInput.value = paddingY;
+      }
+
+      function applyTagGapY() {
+        const gapY = Math.max(0, Math.min(100, parseInt(tagGapYInput.value) || 20));
+        root.style.setProperty("--card-tag-gap-y", gapY + "px");
+        if (tagGapYRange) tagGapYRange.value = gapY;
+        if (tagGapYInput) tagGapYInput.value = gapY;
+      }
+
+      if (iconScaleRange) {
+        iconScaleRange.addEventListener("input", function() {
+          iconScaleInput.value = iconScaleRange.value;
+          applyScale();
+        });
+      }
+      if (iconScaleInput) {
+        iconScaleInput.addEventListener("input", applyScale);
+        iconScaleInput.addEventListener("change", applyScale);
+      }
+
+      if (iconPaddingYRange) {
+        iconPaddingYRange.addEventListener("input", function() {
+          iconPaddingYInput.value = iconPaddingYRange.value;
+          applyPaddingY();
+        });
+      }
+      if (iconPaddingYInput) {
+        iconPaddingYInput.addEventListener("input", applyPaddingY);
+        iconPaddingYInput.addEventListener("change", applyPaddingY);
+      }
+
+      if (tagGapYRange) {
+        tagGapYRange.addEventListener("input", function() {
+          tagGapYInput.value = tagGapYRange.value;
+          applyTagGapY();
+        });
+      }
+      if (tagGapYInput) {
+        tagGapYInput.addEventListener("input", applyTagGapY);
+        tagGapYInput.addEventListener("change", applyTagGapY);
+      }
+
+      applyScale();
+      applyPaddingY();
+      applyTagGapY();
     })();
 
     (function heroOverlayControls() {
@@ -1327,12 +1581,233 @@
       updateScrollDebug();
     })();
 
+    /* =============================================
+       FULLSCREEN SCROLL PANELS
+       ============================================= */
+    (function fullscreenPanels() {
+      if (typeof gsap === "undefined") return;
+
+      const panels = Array.from(document.querySelectorAll(".fs-panel"));
+      const dots   = Array.from(document.querySelectorAll(".fs-dot"));
+      const total  = panels.length;
+      if (total === 0) return;
+
+      let current     = 0;
+      let fsMode      = true;   // true = fullscreen locked, false = gallery scroll
+      let isAnimating = false;
+
+      /* --- Scroll-jump triggers: dejamos activos para que funcionen --- */
+      // Los triggers ahora funcionan junto con el sistema de paneles fullscreen
+      
+      /* --- Anchor visuals: dejamos visibles para debug --- */
+      // Los anchors ahora son visibles para poder ver los thresholds
+
+      /* --- Lock scroll on load (mantener scrollbar visible) --- */
+      window.scrollTo({ top: 0, behavior: "instant" });
+      // Mantener scrollbar siempre visible para evitar recálculos de layout
+      document.body.style.overflowY = "scroll";
+      
+      /* --- Bloquear scroll mientras estamos en modo fullscreen --- */
+      var lastScrollY = 0;
+      window.addEventListener("scroll", function() {
+        if (fsMode && window.scrollY !== 0) {
+          // Si estamos en modo fullscreen y el scroll cambió, revertirlo
+          window.scrollTo({ top: 0, behavior: "instant" });
+        }
+        lastScrollY = window.scrollY;
+      }, { passive: true });
+
+      /* ---------- centerTracks ---------- */
+      function centerTracks(panelIndex, animate) {
+        // Los tracks laterales ya están centrados por CSS (align-items: center).
+        // Si aplicamos transform extra aquí, terminan desplazándose hacia abajo
+        // tras el primer cambio de sección.
+        var panel = panels[panelIndex];
+        if (!panel) return;
+        var tracks = panel.querySelectorAll(".fs-panel__track");
+        tracks.forEach(function (track) {
+          if (animate) {
+            gsap.to(track, { y: 0, duration: 0.3, ease: "power2.out" });
+          } else {
+            gsap.set(track, { y: 0 });
+          }
+        });
+      }
+
+      /* ---------- showPanel ---------- */
+      function showPanel(index) {
+        if (isAnimating || index < 0 || index >= total || index === current) return;
+        isAnimating = true;
+
+        var prev = panels[current];
+        var next = panels[index];
+        var dir  = index > current ? 1 : -1;
+
+        // Fade-out current
+        gsap.to(prev, {
+          opacity: 0,
+          scale: 0.97,
+          duration: 0.5,
+          ease: "power2.inOut",
+          onComplete: function () {
+            prev.classList.remove("fs-panel--active");
+            gsap.set(prev, { scale: 1, y: 0 });
+          }
+        });
+
+        // Fade-in next
+        next.classList.add("fs-panel--active");
+        gsap.fromTo(next,
+          { opacity: 0, y: dir * 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            onComplete: function () { 
+              isAnimating = false;
+            }
+          }
+        );
+
+        // Centrar tracks en el label activo (incluyendo panel 0)
+        centerTracks(index, true);
+
+        // Update dots
+        if (dots[current]) dots[current].classList.remove("fs-dot--active");
+        if (dots[index])   dots[index].classList.add("fs-dot--active");
+
+        current = index;
+      }
+
+      /* ---------- Gallery / Fullscreen mode toggle ---------- */
+      function enterGalleryMode() {
+        fsMode = false;
+        // El scrollbar ya está visible, solo dejamos de bloquear el scroll
+        // No necesitamos cambiar overflow porque ya está en "scroll"
+      }
+
+      function enterFullscreenMode() {
+        fsMode = true;
+        window.scrollTo({ top: 0, behavior: "instant" });
+        // El scrollbar se mantiene visible, solo bloqueamos el scroll con preventDefault
+      }
+
+      /* ---------- Wheel handler ---------- */
+      window.addEventListener("wheel", function (e) {
+        if (fsMode) {
+          // Siempre bloquear el scroll mientras estamos en modo fullscreen
+          // excepto cuando estamos en el último panel y vamos hacia abajo
+          if (e.deltaY > 0 && current === total - 1) {
+            // Último panel hacia abajo: entrar al gallery mode y permitir scroll natural
+            enterGalleryMode();
+            // NO hacer preventDefault para que este scroll pase naturalmente
+            return;
+          }
+          
+          // Bloquear todos los demás scrolls en modo fullscreen
+          e.preventDefault();
+          
+          if (isAnimating) return;
+
+          if (e.deltaY > 0) {
+            // scroll down
+            if (current < total - 1) {
+              showPanel(current + 1);
+            }
+          } else if (e.deltaY < 0) {
+            // scroll up
+            if (current > 0) {
+              showPanel(current - 1);
+            }
+          }
+        } else {
+          // In gallery mode — return to panels when at top and scrolling up
+          if (window.scrollY <= 5 && e.deltaY < 0) {
+            e.preventDefault();
+            enterFullscreenMode();
+          }
+        }
+      }, { passive: false });
+
+      /* ---------- Touch support ---------- */
+      var touchStartY = 0;
+      window.addEventListener("touchstart", function (e) {
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      window.addEventListener("touchend", function (e) {
+        var diff = touchStartY - e.changedTouches[0].clientY;
+        if (Math.abs(diff) < 50) return; // ignore small swipes
+
+        if (fsMode) {
+          if (isAnimating) return;
+          if (diff > 0) {
+            if (current < total - 1) showPanel(current + 1);
+            else enterGalleryMode();
+          } else {
+            if (current > 0) showPanel(current - 1);
+          }
+        } else {
+          if (window.scrollY <= 5 && diff < 0) {
+            enterFullscreenMode();
+          }
+        }
+      }, { passive: true });
+
+      /* ---------- Keyboard support ---------- */
+      window.addEventListener("keydown", function (e) {
+        if (!fsMode) return;
+        if (e.key === "ArrowDown" || e.key === "PageDown") {
+          e.preventDefault();
+          if (current < total - 1) showPanel(current + 1);
+          else enterGalleryMode();
+        } else if (e.key === "ArrowUp" || e.key === "PageUp") {
+          e.preventDefault();
+          if (current > 0) showPanel(current - 1);
+        }
+      });
+
+      /* ---------- Dot clicks ---------- */
+      dots.forEach(function (dot, i) {
+        dot.addEventListener("click", function () { showPanel(i); });
+      });
+
+      /* ---------- "Go to Extensions" CTA ---------- */
+      var ctaBtn = document.getElementById("cta-go-extensions");
+      if (ctaBtn) {
+        ctaBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          enterGalleryMode();
+        });
+      }
+
+      /* ---------- Initialize tracks on load ---------- */
+      // No inicializar tracks al cargar - dejar que el CSS maneje el posicionamiento inicial
+      // Los tracks solo se centrarán cuando cambies de panel
+    })();
+
 
     const cards = Array.from(document.querySelectorAll(".card"));
-    const refSubtitle = "Rated #1 in speed by AV-Test, an independent institute";
+    
+    // Plugin descriptions mapping (product-id to functionality description)
+    const pluginDescriptions = {
+      "auto-quad": "Detects faces that need additional edges to become quadrilaterals (quads)",
+      "bridge-and-extrude": "Four tools, one button. Multi-Extrusion, Bridge Edges, Make Faces, and Push/Pull.",
+      "easy-material-creator": "Creates random materials with pastel colors for the current selection.",
+      "easy-selection": "Enhanced selection tool that allows dragging to select edges.",
+      "fun-align-view": "Aligns the view to the nearest orthographic view with animated transition.",
+      "fun-extrude": "Directional extrusion with keyboard shortcuts for six directions: Right, Left, Up, etc.",
+      "link-blender": "Copy and paste selected geometry from SketchUp to Blender.",
+      "link-camera-blender": "Copy and paste the current camera configuration from SketchUp to Blender.",
+      "link-keyviz": "Connects SketchUp with KeyViz via UDP to send command information and keyboard shortcuts for visualization."
+    };
 
     // Ensure cards have proper structure and classes, but preserve existing titles
     cards.forEach((card) => {
+      const productId = card.getAttribute("data-product-id");
+      const description = pluginDescriptions[productId] || "";
+      
       const frontP = card.querySelector(".card-front p");
       if (frontP) {
         frontP.classList.add("card-title");
@@ -1342,7 +1817,7 @@
       if (frontP && !frontP.nextElementSibling?.classList.contains("card-subtext")) {
         const sub = document.createElement("p");
         sub.className = "card-subtext";
-        sub.textContent = refSubtitle;
+        sub.textContent = description;
         frontP.insertAdjacentElement("afterend", sub);
       }
 
@@ -1353,15 +1828,19 @@
         // Don't overwrite existing text content
       }
       const backBtn = card.querySelector(".card-back-content .buy-btn");
-      if (backP && !card.querySelector(".card-back-content .card-subtext")) {
+      const existingSubtext = card.querySelector(".card-back-content .card-subtext");
+      if (backP && !existingSubtext) {
         const sub = document.createElement("p");
         sub.className = "card-subtext";
-        sub.textContent = refSubtitle;
+        sub.textContent = description;
         if (backBtn) {
           backBtn.insertAdjacentElement("beforebegin", sub);
         } else {
           backP.insertAdjacentElement("afterend", sub);
         }
+      } else if (existingSubtext && description) {
+        // Update existing subtext with description
+        existingSubtext.textContent = description;
       }
     });
 
@@ -1740,20 +2219,42 @@
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let activeFilter = "all";
+    let filterGen = 0;          // race-condition guard
+
+    const setActiveTagVisual = (filter) => {
+      const active = (filter || "all").toString().trim().toLowerCase();
+      document.querySelectorAll(".card-tag").forEach((tag) => {
+        const f = (tag.dataset.filter || "").trim().toLowerCase();
+        tag.classList.toggle("is-active", active !== "all" && f === active);
+      });
+    };
 
     const applyFilter = (filter) => {
+      filterGen++;
+      const gen = filterGen;    // snapshot for this call
       const grid = document.querySelector(".grid");
-      const leaveDuration = 300; // velocidad de aparición/desaparición
+      const leaveDuration = 300;
+
+      // Lock grid height to prevent scroll jump
+      const currentHeight = grid.offsetHeight;
+      grid.style.minHeight = currentHeight + "px";
+
       const cardRects = new Map();
       const matchesMap = new Map();
       const enteringCards = new Set();
       const gridRect = grid.getBoundingClientRect();
       const firstRects = new Map();
+      const normalizedFilter = (filter || "all").toString().trim().toLowerCase();
+
+      console.log("[filter]", normalizedFilter, "gen", gen);
 
       cards.forEach((card) => {
         cardRects.set(card, card.getBoundingClientRect());
-        const tags = (card.dataset.tags || "").split(",").map((t) => t.trim());
-        const matches = filter === "all" || tags.includes(filter);
+        const tags = (card.dataset.tags || "")
+          .split(/[,\s]+/)
+          .map((t) => t.trim().toLowerCase())
+          .filter((t) => t);
+        const matches = normalizedFilter === "all" || tags.includes(normalizedFilter);
         matchesMap.set(card, matches);
         if (!reduceMotion && matches) {
           firstRects.set(card, cardRects.get(card));
@@ -1791,15 +2292,14 @@
         requestAnimationFrame(() => card.classList.add("is-hidden"));
 
         setTimeout(() => {
-          if (!matchesMap.get(card)) {
-            card.classList.remove("is-leaving", "is-hidden");
-            card.classList.add("is-removed");
-            card.style.position = "";
-            card.style.top = "";
-            card.style.left = "";
-            card.style.width = "";
-            card.style.height = "";
-          }
+          if (gen !== filterGen) return;   // stale → skip
+          card.classList.remove("is-leaving", "is-hidden");
+          card.classList.add("is-removed");
+          card.style.position = "";
+          card.style.top = "";
+          card.style.left = "";
+          card.style.width = "";
+          card.style.height = "";
         }, leaveDuration);
       });
 
@@ -1807,7 +2307,7 @@
         requestAnimationFrame(() => {
           cards.forEach((card) => {
             if (!matchesMap.get(card)) return;
-            if (enteringCards.has(card)) return; // B solo: no animar reacomodo
+            if (enteringCards.has(card)) return;
             const first = firstRects.get(card);
             const last = card.getBoundingClientRect();
             if (!first) return;
@@ -1819,13 +2319,16 @@
                   { transform: `translate(${dx}px, ${dy}px)` },
                   { transform: "translate(0, 0)" },
                 ],
-                { duration: 820, easing: "cubic-bezier(0.2, 0.7, 0.2, 1)" } // velocidad del reacomodo (sube este duration)
+                { duration: 820, easing: "cubic-bezier(0.2, 0.7, 0.2, 1)" }
               );
             }
           });
         });
       }
       requestAnimationFrame(() => updateCardPositions(false, false));
+
+      // Keep grid height locked – never collapse
+      // (min-height stays at the largest recorded height)
     };
 
     requestAnimationFrame(() => updateCardPositions(false, false));
@@ -1833,11 +2336,16 @@
     document.querySelectorAll(".card-tag").forEach((tag) => {
       tag.addEventListener("click", (event) => {
         event.stopPropagation();
-        const label = tag.textContent.trim().toLowerCase();
-        activeFilter = activeFilter === label ? "all" : label;
+        event.preventDefault();
+        const filterKey = (tag.dataset.filter || "").trim().toLowerCase();
+        if (!filterKey) return;
+        console.log("[tag-click]", filterKey, "activeFilter was:", activeFilter);
+        activeFilter = activeFilter === filterKey ? "all" : filterKey;
         applyFilter(activeFilter);
+        setActiveTagVisual(activeFilter);
       });
     });
+    setActiveTagVisual(activeFilter);
   </script>
 
   <!-- Footer -->
